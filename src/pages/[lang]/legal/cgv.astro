@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { translations } from '../../../i18n/translations';
+
+// Note: adapter le chemin d'import selon la structure des dossiers
+export async function getStaticPaths() {
+  return [ { params: { lang: 'fr' } }, { params: { lang: 'en' } } ];
+}
+const { lang } = Astro.params;
+---
+
+<BaseLayout>
+  <div class="bg-neutral-50 min-h-screen py-32 px-6 text-slate-800">
+    <div class="max-w-3xl mx-auto prose prose-slate">
+      <h1>Mentions Légales & CGV</h1>
+      
+      <h2>1. Éditeur du site</h2>
+      <p>
+        Ce site est édité par <strong>[Votre Prénom] [Votre Nom]</strong>, entrepreneur individuel.<br>
+        SIRET : [Votre Numéro SIRET]<br>
+        Adresse : [Votre Adresse]<br>
+        Email : [Votre Email]
+      </p>
+
+      <h2>2. Hébergement</h2>
+      <p>
+        Ce site est hébergé par <strong>[Nom Hébergeur : ex: Vercel Inc.]</strong>.<br>
+        Adresse : [Adresse Hébergeur]
+      </p>
+
+      <h2>3. Propriété Intellectuelle</h2>
+      <p>
+        L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.
+      </p>
+
+      <h2>4. Conditions Générales de Vente (Prestations)</h2>
+      <p>
+        <strong>Objet :</strong> Les présentes conditions régissent les ventes de prestations de création de sites web par [Votre Nom].<br>
+        <strong>Tarifs :</strong> Les prix sont indiqués en euros et sont ceux en vigueur au moment de la commande.<br>
+        <strong>Paiement :</strong> Le paiement est exigible à la commande (acompte) et à la livraison (solde).
+      </p>
+    </div>
+  </div>
+</BaseLayout>

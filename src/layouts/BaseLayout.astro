@@ -1,0 +1,43 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LanguageModal from '../components/LanguageModal.astro';
+import { getLangFromUrl } from '../i18n/utils';
+import '../styles/global.css';
+
+const lang = getLangFromUrl(Astro.url);
+
+
+// Ça c'est pour que Google et Facebook soient contents
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="icon" type="image/png" href="/pro+.png" />
+    
+    <title>Ultras sites - Modèle PRO+</title>
+    <meta name="description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content="Ultras sites - Modèle PRO+" />
+    <meta property="og:description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
+
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <LanguageModal />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

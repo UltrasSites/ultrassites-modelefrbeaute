@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+export async function getStaticPaths() {
+  return [ { params: { lang: 'fr' } }, { params: { lang: 'en' } } ];
+}
+---
+
+<BaseLayout>
+  <div class="bg-neutral-50 min-h-screen py-32 px-6 text-slate-800">
+    <div class="max-w-3xl mx-auto prose prose-slate">
+      <h1>Politique de Confidentialité</h1>
+      
+      <p>Dernière mise à jour : [Date]</p>
+
+      <h2>1. Collecte des données</h2>
+      <p>
+        Nous collectons les informations que vous nous fournissez via le formulaire de contact (Nom, Email). Ces données sont utilisées uniquement pour répondre à votre demande.
+      </p>
+
+      <h2>2. Cookies</h2>
+      <p>
+        Ce site n'utilise pas de cookies publicitaires invasifs. Seuls des cookies techniques nécessaires au bon fonctionnement (ex: choix de la langue) peuvent être déposés.
+      </p>
+
+      <h2>3. Vos droits</h2>
+      <p>
+        Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez-nous à [Votre Email] pour exercer ce droit.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
