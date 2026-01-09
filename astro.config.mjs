@@ -1,11 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'; // <--- C'est le SEUL import nécessaire
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://ultrassites-modelepro+.netlify.app', // <-- Ton domaine / Netlify URL
+  output: 'static',
+  build: {
+    format: 'directory',
+  },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()] // <--- C'est ICI que ça se passe maintenant
   }
+  // Surtout PAS de ligne "integrations: [tailwind()]"
 });
