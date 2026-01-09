@@ -1,14 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite'; // <--- C'est le SEUL import nécessaire
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  // IMPORTANT : Cette ligne est obligatoire pour que "new URL()" fonctionne
+  site: 'https://mon-site-temporaire.pages.dev', 
+
   output: 'static',
   build: {
     format: 'directory',
   },
   vite: {
-    plugins: [tailwindcss()] // <--- C'est ICI que ça se passe maintenant
+    plugins: [tailwindcss()]
   }
-  // Surtout PAS de ligne "integrations: [tailwind()]"
 });
