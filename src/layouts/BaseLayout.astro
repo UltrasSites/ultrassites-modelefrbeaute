@@ -29,7 +29,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content="Ultras sites - Modèle PRO+" />
     <meta property="og:description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
+<script is:inline>
+    (function() {
+      // 1. Gestion du Thème (Dark/Light)
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
 
+      // 2. Gestion de la Langue (ton code actuel)
+      const savedLang = localStorage.getItem('lang');
+      const urlParams = new URLSearchParams(window.location.search);
+      // ... ta logique de redirection ...
+      
+    })();
+  </script>
   </head>
 
   <body class="bg-gray-50 text-gray-900">
