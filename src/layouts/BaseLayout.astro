@@ -6,11 +6,10 @@ import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
 
 const lang = getLangFromUrl(Astro.url);
-
-
-// Ça c'est pour que Google et Facebook soient contents
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+/* --- INFOS COULEURS PRO+ --- */
+/* On garde la cohérence : Gray-50 (Light) / Gray-900 (Dark) */
 ---
 
 <!doctype html>
@@ -29,24 +28,55 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content="Ultras sites - Modèle PRO+" />
     <meta property="og:description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
-<script is:inline>
-    (function() {
-      // 1. Gestion du Thème (Dark/Light)
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
+
+    <style is:inline>
+      /* Light Mode (Défaut) */
+      html, body {
+        background-color: #f9fafb; /* bg-gray-50 */
+        color: #111827;            /* text-gray-900 */
+        margin: 0; padding: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, sans-serif;
       }
 
-      // 2. Gestion de la Langue (ton code actuel)
-      const savedLang = localStorage.getItem('lang');
-      const urlParams = new URLSearchParams(window.location.search);
-      // ... ta logique de redirection ...
-      
-    })();
-  </script>
+      /* Dark Mode (Activé via JS) */
+      html.dark, html.dark body {
+        background-color: #111827 !important; /* bg-gray-900 */
+        color: #f9fafb !important;            /* text-gray-50 */
+      }
+    </style>
+
+    <script is:inline>
+      (function() {
+        // A. THEME
+        const theme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (theme === 'dark' || (!theme && systemDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+
+        // B. LANGUE (Code complet réintégré)
+        try {
+          const savedLang = localStorage.getItem('lang');
+          const urlParams = new URLSearchParams(window.location.search);
+          const currentLangInUrl = urlParams.get('lang');
+          
+          if (savedLang && currentLangInUrl && currentLangInUrl !== savedLang) {
+            urlParams.set('lang', savedLang);
+            const newUrl = window.location.pathname + '?' + urlParams.toString();
+            window.location.replace(newUrl);
+          }
+        } catch (e) {
+          console.error("Erreur redirection", e);
+        }
+      })();
+    </script>
   </head>
 
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50 antialiased transition-colors duration-300">
     <LanguageModal />
     <Header />
     <main>
