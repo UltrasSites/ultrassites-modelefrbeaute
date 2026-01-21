@@ -1,5 +1,5 @@
 <script is:inline>
-  // Rediriger vers /language/ si pas de cookie, sinon vers /{lang}/
+  // Redirection gérée par _redirects
   const langCookie = document.cookie.split('; ').find(row => row.startsWith('lang='))?.split('=')[1];
   if (langCookie === 'en' || langCookie === 'fr') {
     window.location.pathname = `/${langCookie}/`;
