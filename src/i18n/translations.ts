@@ -40,8 +40,8 @@ export interface Translation {
 
 export const translations: Record<Lang, Translation> = {
   fr: {
-    siteTitle: "SIGNATURE",
-    ctaButton: "Démarrer l'expérience",
+    siteTitle: "PRO+",
+    ctaButton: "Démarrer le projet",
 
     nav: {
       home: "Accueil",
@@ -53,56 +53,56 @@ export const translations: Record<Lang, Translation> = {
     },
 
     heroTitle: "L'élégance brute.",
-    heroSub: "PACK SIGNATURE",
+    heroSub: "PACK PRO+",
     heroDesc:
-      "Le web est saturé de bruit. Je vous propose le silence et l'impact. En tant que créateur indépendant, je façonne des sites uniques qui allient la beauté de la nature à la puissance du code.",
+      "Le web est saturé de bruit. Je vous propose le silence et l'impact. En tant que créateur indépendant, je façonne des sites uniques qui allient esthétique naturelle et performance technique.",
 
     aboutPageTitle: "Plus qu'un développeur, un architecte.",
     aboutPageText:
-      "Mon approche est celle d'un artisan d'art. Je ne pose pas des briques préfabriquées (WordPress). Je sculpte votre interface pixel par pixel. Mon objectif ? Que votre site ne ressemble à aucun autre et qu'il traduise parfaitement l'âme de votre projet.",
+      "Mon approche est celle d'un artisan d'art. Je ne pose pas des briques préfabriquées. Je sculpte votre interface pixel par pixel. Mon objectif ? Que votre site soit unique et traduise parfaitement l'essence de votre projet.",
 
     servicesSection: "L'Excellence Technique",
-    servicesSubtitle: "Une fusion entre esthétique naturelle et performance brute.",
+    servicesSubtitle: "Une fusion entre esthétique naturelle et performance technique.",
     services: [
       {
         title: "Direction Artistique",
-        desc: "Choix de typographies éditoriales et d'images immersives pour une identité forte.",
+        desc: "Typographies soignées et images immersives pour une identité visuelle marquante.",
       },
       {
         title: "Expérience Sensorielle",
-        desc: "Animations fluides au scroll et micro-interactions pour captiver le visiteur.",
+        desc: "Animations fluides et micro-interactions pour créer une expérience captivante.",
       },
       {
-        title: "Architecture Green",
-        desc: "Un code optimisé qui consomme moins d'énergie et charge instantanément.",
+        title: "Architecture Performante",
+        desc: "Code optimisé pour une consommation minimale et un chargement instantané.",
       },
       {
         title: "Référencement Organique",
-        desc: "Structure sémantique parfaite pour une croissance naturelle sur Google.",
+        desc: "Structure sémantique optimisée pour une visibilité naturelle sur les moteurs de recherche.",
       },
       {
         title: "Intégration Sociale",
-        desc: "Connexion esthétique avec vos réseaux pour un écosystème cohérent.",
+        desc: "Connexion harmonieuse avec vos réseaux pour un écosystème digital cohérent.",
       },
       {
-        title: "Sécurité Absolue",
-        desc: "Protection maximale de vos données et de celles de vos clients.",
+        title: "Sécurité Renforcée",
+        desc: "Protection avancée de vos données et de celles de vos utilisateurs.",
       },
     ],
 
-    contactTitle: "Créons quelque chose de beau",
+    contactTitle: "Créons quelque chose de remarquable",
     contactText:
-      "Vous cherchez un partenaire qui a le souci du détail ? Je sélectionne mes projets pour garantir une qualité irréprochable. Parlons-en.",
-    contactInfo: "Réponse personnelle sous 24h.",
+      "Vous cherchez un partenaire exigeant ? Je sélectionne mes projets pour garantir une qualité irréprochable. Discutons de votre vision.",
+    contactInfo: "Réponse personnalisée sous 24h.",
     followMe: "Suivre mon travail",
     locationTitle: "Atelier / Localisation",
 
-    footerText: "© 2026 — Fait main par [Votre Nom].",
+    footerText: "© 2026 — Fait main.",
   },
 
   en: {
-    siteTitle: "SIGNATURE",
-    ctaButton: "Start Experience",
+    siteTitle: "PRO+",
+    ctaButton: "Start Project",
 
     nav: {
       home: "Home",
@@ -114,50 +114,50 @@ export const translations: Record<Lang, Translation> = {
     },
 
     heroTitle: "Raw Elegance.",
-    heroSub: "SIGNATURE PACK",
+    heroSub: "PRO+ PACK",
     heroDesc:
-      "The web is full of noise. I offer you silence and impact. As an independent creator, I craft unique sites that combine the beauty of nature with the power of code.",
+      "The web is full of noise. I offer you silence and impact. As an independent creator, I craft unique sites that combine natural aesthetics with technical performance.",
 
     aboutPageTitle: "More than a developer, an architect.",
     aboutPageText:
-      "My approach is that of a fine craftsman. I don't lay prefabricated bricks (WordPress). I sculpt your interface pixel by pixel. My goal? That your site looks like no other and perfectly translates the soul of your project.",
+      "My approach is that of a fine craftsman. I don't lay prefabricated bricks. I sculpt your interface pixel by pixel. My goal? That your site is unique and perfectly translates the essence of your project.",
 
     servicesSection: "Technical Excellence",
-    servicesSubtitle: "A fusion of natural aesthetics and raw performance.",
+    servicesSubtitle: "A fusion of natural aesthetics and technical performance.",
     services: [
       {
         title: "Art Direction",
-        desc: "Choice of editorial typography and immersive images for a strong identity.",
+        desc: "Carefully selected typography and immersive imagery for a strong visual identity.",
       },
       {
         title: "Sensory Experience",
-        desc: "Fluid scroll animations and micro-interactions to captivate the visitor.",
+        desc: "Smooth animations and micro-interactions to create a captivating experience.",
       },
       {
-        title: "Green Architecture",
-        desc: "Optimized code that consumes less energy and loads instantly.",
+        title: "Performance Architecture",
+        desc: "Optimized code for minimal consumption and instant loading.",
       },
       {
         title: "Organic SEO",
-        desc: "Perfect semantic structure for natural growth on Google.",
+        desc: "Semantic structure optimized for natural visibility on search engines.",
       },
       {
         title: "Social Integration",
-        desc: "Aesthetic connection with your networks for a consistent ecosystem.",
+        desc: "Harmonious connection with your networks for a coherent digital ecosystem.",
       },
       {
-        title: "Absolute Security",
-        desc: "Maximum protection of your data and that of your clients.",
+        title: "Enhanced Security",
+        desc: "Advanced protection of your data and that of your users.",
       },
     ],
 
-    contactTitle: "Let's create beauty",
+    contactTitle: "Let's create something remarkable",
     contactText:
-      "Looking for a partner with an eye for detail? I select my projects to ensure impeccable quality. Let's talk.",
-    contactInfo: "Personal response within 24h.",
+      "Looking for a demanding partner? I select my projects to ensure impeccable quality. Let's discuss your vision.",
+    contactInfo: "Personalized response within 24h.",
     followMe: "Follow my work",
     locationTitle: "Studio / Location",
 
-    footerText: "© 2026 — Handcrafted by [Your Name].",
+    footerText: "© 2026 — Handcrafted.",
   },
 };
