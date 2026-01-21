@@ -15,10 +15,10 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
       {t.siteTitle}<span class="text-emerald-500 not-italic group-hover:text-white transition-colors">.</span>
     </a>
 
-    <a href={`${linkPrefix}#blog`} class="nav-link relative hover:text-emerald-400 transition-colors py-2" data-section="blog">
-    Journal
-    <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
-</a>
+    <a href={`${linkPrefix}#blog`} class="hidden md:block nav-link relative hover:text-emerald-400 transition-colors py-2" data-section="blog">
+      Journal
+      <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+    </a>
     
     <div class="hidden md:flex items-center gap-12">
       <div class="flex gap-8 text-xs font-bold text-white uppercase tracking-[0.2em]">
@@ -42,11 +42,84 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
         <a href={`/en/`} class={`hover:text-white transition ${lang === 'en' ? 'text-white' : ''}`}>EN</a>
       </div>
     </div>
+
+    <!-- Menu mobile -->
+    <button id="mobile-menu-btn" class="md:hidden z-50 text-white hover:text-emerald-400 transition-colors" aria-label="Menu">
+      <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Menu mobile overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-md z-40 hidden md:hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-8 text-white">
+        <a href={`${linkPrefix}#home`} class="nav-link-mobile text-2xl font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors" data-section="home">
+          {t.nav.home}
+        </a>
+        <a href={`${linkPrefix}#about`} class="nav-link-mobile text-2xl font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors" data-section="about">
+          {t.nav.about}
+        </a>
+        <a href={`${linkPrefix}#services`} class="nav-link-mobile text-2xl font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors" data-section="services">
+          {t.nav.services}
+        </a>
+        <a href={`${linkPrefix}#contact`} class="nav-link-mobile text-2xl font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors" data-section="contact">
+          {t.nav.contact}
+        </a>
+        <a href={`${linkPrefix}#blog`} class="nav-link-mobile text-2xl font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors" data-section="blog">
+          Journal
+        </a>
+        <div class="flex gap-6 mt-4 text-lg font-bold">
+          <a href={`/fr/`} class={`hover:text-emerald-400 transition ${lang === 'fr' ? 'text-emerald-400' : 'text-white/50'}`}>FR</a>
+          <a href={`/en/`} class={`hover:text-emerald-400 transition ${lang === 'en' ? 'text-emerald-400' : 'text-white/50'}`}>EN</a>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 
-<a href="#contact" class="hidden md:flex fixed bottom-8 right-8 z-50 w-16 h-16 bg-emerald-600 rounded-full items-center justify-center text-white shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 transition-all duration-300 animate-bounce-slow">
+<script>
+  (function() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const navLinks = document.querySelectorAll('.nav-link-mobile');
+
+    if (!menuBtn || !mobileMenu) return;
+
+    function toggleMenu() {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      document.body.style.overflow = isHidden ? 'hidden' : '';
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  })();
+</script>
+
+<a href={`/${lang}/contact`} class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-emerald-600 rounded-full items-center justify-center text-white shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 transition-all duration-300 flex" aria-label="Contact">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+       <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
     </svg>
 </a>
