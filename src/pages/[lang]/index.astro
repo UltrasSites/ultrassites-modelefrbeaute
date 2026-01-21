@@ -30,7 +30,7 @@ const t = translations[lang as 'fr' | 'en'];
             {t.heroDesc}
           </p>
           <a href={`/${lang}/#services`} class="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-emerald-500 transition-colors animate-fade-in-up delay-300">
-             Découvrir <span class="group-hover:translate-y-1 transition-transform">↓</span>
+             {t.heroCta} <span class="group-hover:translate-y-1 transition-transform">↓</span>
           </a>
        </div>
     </section>
@@ -44,28 +44,22 @@ const t = translations[lang as 'fr' | 'en'];
                 </div>
             </div>
             <div>
-                <span class="text-emerald-500 font-bold tracking-widest text-xs uppercase mb-4 block">L'Artisanat Digital</span>
+                <span class="text-emerald-500 font-bold tracking-widest text-xs uppercase mb-4 block">{t.aboutBadge}</span>
                 <h2 class="text-4xl md:text-5xl font-serif italic mb-8">{t.aboutPageTitle}</h2>
                 <div class="prose prose-invert prose-lg text-neutral-400 font-light">
                     <p>{t.aboutPageText}</p>
                     <p class="mt-4">
-                        Pas de templates. Pas de chargements infinis. Juste du code pur taillé pour la performance. C'est ça, la promesse Signature.
+                        {t.aboutExtra}
                     </p>
                 </div>
                 
                 <div class="grid grid-cols-3 gap-8 mt-12 border-t border-white/10 pt-8">
+                    {t.metrics.map((metric) => (
                     <div>
-                        <span class="block text-3xl font-bold text-white">100<small class="text-sm">%</small></span>
-                        <span class="text-xs text-neutral-500 uppercase tracking-widest">Performance</span>
+                        <span class="block text-3xl font-bold text-white">{metric.value}</span>
+                        <span class="text-xs text-neutral-500 uppercase tracking-widest">{metric.label}</span>
                     </div>
-                    <div>
-                        <span class="block text-3xl font-bold text-white">0<small class="text-sm">s</small></span>
-                        <span class="text-xs text-neutral-500 uppercase tracking-widest">Attente</span>
-                    </div>
-                    <div>
-                        <span class="block text-3xl font-bold text-white">24<small class="text-sm">/7</small></span>
-                        <span class="text-xs text-neutral-500 uppercase tracking-widest">Support</span>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
@@ -94,15 +88,16 @@ const t = translations[lang as 'fr' | 'en'];
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div>
-                    <span class="text-emerald-500 font-bold tracking-widest text-xs uppercase mb-4 block">Stratégie & Contenu</span>
-                    <h2 class="text-4xl font-serif italic text-white">Le Journal.</h2>
+                    <span class="text-emerald-500 font-bold tracking-widest text-xs uppercase mb-4 block">{t.blogBadge}</span>
+                    <h2 class="text-4xl font-serif italic text-white">{t.blogTitle}</h2>
                 </div>
                 <a href="#" class="text-sm font-bold text-white uppercase tracking-widest hover:text-emerald-500 transition-colors pb-2 border-b border-white/20 hover:border-emerald-500">
-                    Voir tous les articles →
+                    {t.blogLinkLabel}
                 </a>
             </div>
 
             <div class="grid md:grid-cols-3 gap-10">
+                {t.blogPosts.map((post) => (
                 <article class="group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-6 relative aspect-[4/3]">
                         <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=1964&auto=format&fit=crop" 
@@ -110,61 +105,20 @@ const t = translations[lang as 'fr' | 'en'];
                              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                         <div class="absolute top-4 left-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-white">SEO</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-white">{post.badge}</span>
                         </div>
                     </div>
                     <div class="space-y-3">
-                        <span class="text-xs text-neutral-500">12 Octobre 2025</span>
+                        <span class="text-xs text-neutral-500">{post.date}</span>
                         <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">
-                            Pourquoi le site statique domine Google cette année.
+                            {post.title}
                         </h3>
                         <p class="text-sm text-neutral-400 line-clamp-2">
-                            La vitesse n'est plus une option. Découvrez comment une architecture statique optimisée propulse votre visibilité...
+                            {post.desc}
                         </p>
                     </div>
                 </article>
-
-                <article class="group cursor-pointer">
-                    <div class="overflow-hidden rounded-xl mb-6 relative aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
-                             alt="Blog Post" 
-                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-                         <div class="absolute top-4 left-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-white">Design</span>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="text-xs text-neutral-500">28 Septembre 2025</span>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">
-                            L'impact du "Dark Mode" sur la conversion client.
-                        </h3>
-                        <p class="text-sm text-neutral-400 line-clamp-2">
-                            Une interface sombre n'est pas qu'esthétique, elle réduit la fatigue oculaire et augmente le temps passé...
-                        </p>
-                    </div>
-                </article>
-
-                <article class="group cursor-pointer">
-                    <div class="overflow-hidden rounded-xl mb-6 relative aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c54be3855463?q=80&w=1964&auto=format&fit=crop" 
-                             alt="Blog Post" 
-                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-                         <div class="absolute top-4 left-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-white">Tech</span>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="text-xs text-neutral-500">15 Septembre 2025</span>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">
-                            Sécurité web : pourquoi abandonner WordPress ?
-                        </h3>
-                        <p class="text-sm text-neutral-400 line-clamp-2">
-                            Les failles de sécurité des CMS coûtent cher. Le code pur offre une forteresse imprenable pour vos données.
-                        </p>
-                    </div>
-                </article>
+                ))}
             </div>
         </div>
     </section>
@@ -178,13 +132,13 @@ const t = translations[lang as 'fr' | 'en'];
 
             <form class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Nom" class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors" />
-                    <input type="email" placeholder="Email" class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors" />
+                    <input type="text" placeholder={t.contactNamePlaceholder} class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors" />
+                    <input type="email" placeholder={t.contactEmailPlaceholder} class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors" />
                 </div>
-                <textarea rows="4" placeholder="Votre projet en quelques mots..." class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors"></textarea>
+                <textarea rows="4" placeholder={t.contactMessagePlaceholder} class="w-full bg-black/30 border border-white/10 rounded-lg px-6 py-4 focus:border-emerald-500 focus:outline-none transition-colors"></textarea>
                 
                 <a href={`/${lang}/contact`} class="block w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold uppercase tracking-widest py-5 rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transform hover:-translate-y-1 text-center">
-                    Lancer la collaboration
+                    {t.contactCta}
                 </a>
             </form>
         </div>

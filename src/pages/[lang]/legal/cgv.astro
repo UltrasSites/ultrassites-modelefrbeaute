@@ -7,34 +7,40 @@ export async function getStaticPaths() {
   return [ { params: { lang: 'fr' } }, { params: { lang: 'en' } } ];
 }
 const { lang } = Astro.params;
+const isEn = lang === 'en';
 ---
 
 <BaseLayout>
   <div class="bg-neutral-50 min-h-screen py-32 px-6 text-slate-800">
     <div class="max-w-3xl mx-auto prose prose-slate">
-      <h1>Mentions Légales & CGV</h1>
+      <h1>{isEn ? 'Legal Notice & Terms' : 'Mentions Légales & CGV'}</h1>
       
-      <h2>1. Éditeur du site</h2>
+      <h2>{isEn ? '1. Site Publisher' : '1. Éditeur du site'}</h2>
       <p>
-        Ce site est édité par un entrepreneur individuel spécialisé dans la création web.<br>
-        Pour toute demande concernant les mentions légales, veuillez utiliser le formulaire de contact.
+        {isEn
+          ? "This site is published by an independent web creator. For any request regarding the legal notice, please use the contact form."
+          : "Ce site est édité par un entrepreneur individuel spécialisé dans la création web. Pour toute demande concernant les mentions légales, veuillez utiliser le formulaire de contact."}
       </p>
 
-      <h2>2. Hébergement</h2>
+      <h2>{isEn ? '2. Hosting' : '2. Hébergement'}</h2>
       <p>
-        Ce site est hébergé sur une infrastructure moderne et performante, garantissant une disponibilité maximale et une sécurité renforcée.
+        {isEn
+          ? "The site is hosted on a modern, high-performance infrastructure ensuring high availability and reinforced security."
+          : "Ce site est hébergé sur une infrastructure moderne et performante, garantissant une disponibilité maximale et une sécurité renforcée."}
       </p>
 
-      <h2>3. Propriété Intellectuelle</h2>
+      <h2>{isEn ? '3. Intellectual Property' : '3. Propriété Intellectuelle'}</h2>
       <p>
-        L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.
+        {isEn
+          ? "All content is protected by applicable intellectual property laws. All reproduction rights are reserved."
+          : "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés."}
       </p>
 
-      <h2>4. Conditions Générales de Vente (Prestations)</h2>
+      <h2>{isEn ? '4. Terms of Service (Services)' : '4. Conditions Générales de Vente (Prestations)'}</h2>
       <p>
-        <strong>Objet :</strong> Les présentes conditions régissent les ventes de prestations de création de sites web.<br>
-        <strong>Tarifs :</strong> Les prix sont indiqués en euros et sont ceux en vigueur au moment de la commande.<br>
-        <strong>Paiement :</strong> Le paiement est exigible à la commande (acompte) et à la livraison (solde).
+        <strong>{isEn ? 'Purpose:' : 'Objet :'}</strong> {isEn ? 'These terms govern the sale of web creation services.' : 'Les présentes conditions régissent les ventes de prestations de création de sites web.'}<br>
+        <strong>{isEn ? 'Pricing:' : 'Tarifs :'}</strong> {isEn ? 'Prices are in euros and valid at the time of order.' : 'Les prix sont indiqués en euros et sont ceux en vigueur au moment de la commande.'}<br>
+        <strong>{isEn ? 'Payment:' : 'Paiement :'}</strong> {isEn ? 'Payment is due upon order (deposit) and on delivery (balance).' : 'Le paiement est exigible à la commande (acompte) et à la livraison (solde).'}
       </p>
     </div>
   </div>

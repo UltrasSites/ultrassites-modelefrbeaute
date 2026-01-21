@@ -26,17 +26,17 @@ const t = translations[lang as 'fr' | 'en'];
         
         <form class="space-y-8">
             <div class="border-b border-white/20 pb-2 focus-within:border-emerald-500 transition-colors">
-                <input type="text" placeholder="Votre Nom" class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg" />
+                <input type="text" placeholder={t.contactNamePlaceholder} class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg" />
             </div>
             <div class="border-b border-white/20 pb-2 focus-within:border-emerald-500 transition-colors">
-                <input type="email" placeholder="Email Professionnel" class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg" />
+                <input type="email" placeholder={t.contactEmailPlaceholder} class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg" />
             </div>
             <div class="border-b border-white/20 pb-2 focus-within:border-emerald-500 transition-colors">
-                <textarea rows="3" placeholder="Parlez-moi de votre vision..." class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg resize-none"></textarea>
+                <textarea rows="3" placeholder={t.contactMessagePlaceholder} class="w-full bg-transparent text-white placeholder-neutral-600 focus:outline-none py-4 text-lg resize-none"></textarea>
             </div>
             
             <button class="group flex items-center gap-4 text-white uppercase tracking-widest text-sm font-bold pt-8 hover:text-emerald-500 transition-colors">
-                Envoyer le message <span class="group-hover:translate-x-2 transition-transform">→</span>
+                {t.contactSend} <span class="group-hover:translate-x-2 transition-transform">→</span>
             </button>
         </form>
 
