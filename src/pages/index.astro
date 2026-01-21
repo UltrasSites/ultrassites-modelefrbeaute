@@ -1,4 +1,9 @@
 <script is:inline>
-  const savedLang = localStorage.getItem('lang') || 'fr';
-  window.location.pathname = `/${savedLang}/`;
+  // Rediriger vers /language/ si pas de cookie, sinon vers /{lang}/
+  const langCookie = document.cookie.split('; ').find(row => row.startsWith('lang='))?.split('=')[1];
+  if (langCookie === 'en' || langCookie === 'fr') {
+    window.location.pathname = `/${langCookie}/`;
+  } else {
+    window.location.pathname = '/language/';
+  }
 </script>

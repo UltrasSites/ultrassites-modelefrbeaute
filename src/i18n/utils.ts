@@ -1,10 +1,11 @@
 import { translations, type Lang } from './translations';
 
 export function getLangFromUrl(url: URL): Lang {
-  const params = new URLSearchParams(url.search);
-  const lang = params.get('lang');
+  // Extraire la langue depuis le pathname : /fr/ ou /en/
+  const pathname = url.pathname;
+  const langMatch = pathname.match(/^\/(fr|en)(\/|$)/);
   
-  if (lang === 'en') return 'en';
+  if (langMatch && langMatch[1] === 'en') return 'en';
   return 'fr'; // Par défaut
 }
 

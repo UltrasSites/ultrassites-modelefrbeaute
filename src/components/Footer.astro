@@ -1,8 +1,9 @@
 ---
 import { translations, type Lang } from '../i18n/translations';
-const langParam = Astro.url.searchParams.get('lang');
-const lang: Lang = langParam === 'en' ? 'en' : 'fr';
-const t = translations[lang];
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = translations[lang as 'fr' | 'en'];
 ---
 
 <footer class="bg-black text-white py-16 border-t border-white/10">
