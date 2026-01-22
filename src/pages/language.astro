@@ -5,102 +5,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRO+ Language</title>
   <link rel="icon" type="image/png" href="/pro+.png" />
-  <title>Choisissez votre langue / Choose your language</title>
-  
-  <style is:inline>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      width: 100%;
-      height: 100%;
+  <style>
+    body {
+      background-color: #050505; color: #fff;
       font-family: system-ui, -apple-system, sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      margin: 0;
     }
-    
-    .container {
-      text-align: center;
-      max-width: 500px;
-      padding: 2rem;
+    .card {
+      text-align: center; border: 1px solid rgba(255,255,255,0.1);
+      padding: 3rem; border-radius: 1rem;
+      background: linear-gradient(to bottom, #111, #050505);
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
     }
-    
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      line-height: 1.4;
-    }
-    
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-    
+    h1 { font-size: 1.5rem; letter-spacing: 0.1em; margin-bottom: 2rem; text-transform: uppercase; color: #aaa; }
     button {
-      flex: 1;
-      padding: 1.25rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      background: transparent; border: 1px solid #333; color: white;
+      padding: 1rem 2rem; margin: 0 0.5rem; cursor: pointer;
+      font-weight: bold; transition: 0.3s; border-radius: 0.5rem;
     }
-    
-    .btn-fr {
-      background: #059669;
-      color: white;
-    }
-    
-    .btn-fr:hover {
-      background: #047857;
-      transform: translateY(-2px);
-    }
-    
-    .btn-en {
-      background: #1f2937;
-      color: white;
-    }
-    
-    .btn-en:hover {
-      background: #111827;
-      transform: translateY(-2px);
+    button:hover {
+      border-color: #10b981; color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Choisissez votre langue / Choose your language</h1>
-    <div class="buttons">
-      <button id="btn-fr" class="btn-fr">Français</button>
-      <button id="btn-en" class="btn-en">English</button>
+  <div class="card">
+    <h1>Select Language</h1>
+    <div>
+      <button id="fr">FRANÇAIS</button>
+      <button id="en">ENGLISH</button>
     </div>
   </div>
-
   <script is:inline>
-    (function() {
-      function setLanguage(lang) {
-        if (lang !== 'fr' && lang !== 'en') return;
-        
-        // Définir le cookie
-        document.cookie = `lang=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax; Secure`;
-        
-        // Rediriger vers /{lang}/
-        window.location.href = `/${lang}/`;
-      }
-      
-      document.getElementById('btn-fr')?.addEventListener('click', () => setLanguage('fr'));
-      document.getElementById('btn-en')?.addEventListener('click', () => setLanguage('en'));
-    })();
+    function go(l) {
+      document.cookie = `lang=${l}; Path=/; Max-Age=31536000; SameSite=Lax`;
+      window.location.href = `/${l}/`;
+    }
+    document.getElementById('fr').addEventListener('click', () => go('fr'));
+    document.getElementById('en').addEventListener('click', () => go('en'));
+
+    const c = document.cookie.split('; ').find(r => r.startsWith('lang='));
+    if(c) {
+       const l = c.split('=')[1];
+       if(l==='fr'||l==='en') window.location.replace(`/${l}/`);
+    }
   </script>
 </body>
 </html>

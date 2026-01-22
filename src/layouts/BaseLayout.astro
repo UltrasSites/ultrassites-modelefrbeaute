@@ -6,91 +6,42 @@ import '../styles/global.css';
 
 const lang = getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-/* --- INFOS COULEURS PRO+ --- */
-/* On garde la cohérence : Gray-50 (Light) / Gray-900 (Dark) */
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <link rel="icon" type="image/png" href="/pro+.png" />
     
-    <title>Ultras sites - Modèle PRO+</title>
-    <meta name="description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
+    <title>Ultras Sites - Modèle PRO+</title>
+    <meta name="description" content="Modèle Pro+, ultra-performance et design sombre." />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content="Ultras sites - Modèle PRO+" />
-    <meta property="og:description" content="Construisez votre site, ultra-rapide, économiser avec hébergement, modèle site pro+" />
-
-    <!-- Préchargement des fonts système pour éviter FOUC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <style is:inline>
-      /* Styles critiques inline pour éviter FOUC */
-      * {
-        box-sizing: border-box;
-      }
-      
-      html {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      
-      /* Light Mode (Défaut) */
-      html, body {
-        background-color: #0a0a0a; /* neutral-950 */
-        color: #ffffff;             /* white */
-        margin: 0; 
-        padding: 0;
-        min-height: 100vh;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      }
+      /* Défaut : Dark Mode pur */
+      html { background-color: #0a0a0a; color: #ffffff; }
+      body { margin: 0; min-height: 100vh; overflow-x: hidden; }
 
-      /* Dark Mode (Activé via JS) - ici c'est déjà dark par défaut */
-      html.dark, html.dark body {
-        background-color: #111827 !important; /* bg-gray-900 */
-        color: #f9fafb !important;            /* text-gray-50 */
-      }
-      
-      /* Prévenir le flash de scrollbar */
-      body {
-        overflow-x: hidden;
-      }
-      
-      /* Styles critiques pour le header */
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 40;
-        background: transparent;
-      }
+      /* Protection FOUC */
+      html.js-loading body { visibility: hidden; opacity: 0; }
+      body { visibility: visible; opacity: 1; transition: opacity 0.3s ease-in; }
     </style>
 
     <script is:inline>
-      (function() {
-        // A. THEME - Appliqué immédiatement avant render
-        const theme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (theme === 'dark' || (!theme && systemDark)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+      // Anti-FOUC
+      document.documentElement.classList.add('js-loading');
+      window.addEventListener('DOMContentLoaded', () => document.documentElement.classList.remove('js-loading'));
+      setTimeout(() => document.documentElement.classList.remove('js-loading'), 500);
 
-        // B. LANGUE (géré par cookie et middleware, plus de query params)
-      })();
+      // Le thème est forcé "Dark" par design, mais on garde la structure si besoin d'évoluer
+      document.documentElement.classList.add('dark');
     </script>
   </head>
 
-  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50 antialiased transition-colors duration-300">
+  <body class="bg-neutral-950 text-white antialiased">
     <Header />
     <main>
       <slot />
