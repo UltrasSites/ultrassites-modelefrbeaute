@@ -4,19 +4,14 @@ import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = translations[lang];
-
-// Détection: sommes-nous sur la page d'accueil ?
-const pathname = Astro.url.pathname;
-const isHome = pathname === `/${lang}/` || pathname === `/${lang}`;
-
-// Si on n'est pas sur l'accueil, on ajoute le préfixe pour revenir à l'accueil
+const isHome = Astro.url.pathname === `/${lang}/` || Astro.url.pathname === `/${lang}`;
 const linkPrefix = isHome ? '' : `/${lang}/`;
 ---
 
-<header id="smart-header" class="fixed top-0 w-full z-40 transition-all duration-500 bg-transparent backdrop-blur-sm border-b border-white/5">
-  <nav class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+<header id="smart-header" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm border-b border-white/5">
+  <nav class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center relative z-50">
     
-    <a href={`/${lang}/`} class="text-2xl font-serif italic text-white tracking-widest z-50 relative group">
+    <a href={`/${lang}/`} class="text-2xl font-serif italic text-white tracking-widest relative group">
       {t.siteTitle}<span class="text-emerald-500 not-italic group-hover:text-white transition-colors">.</span>
     </a>
 
@@ -26,62 +21,80 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
         <a href={`${linkPrefix}#about`} class="nav-link hover:text-emerald-400 transition-colors py-2">{t.nav.about}</a>
         <a href={`${linkPrefix}#services`} class="nav-link hover:text-emerald-400 transition-colors py-2">{t.nav.services}</a>
         <a href={`${linkPrefix}#contact`} class="nav-link hover:text-emerald-400 transition-colors py-2">{t.nav.contact}</a>
-        <a href={`${linkPrefix}#blog`} class="nav-link hover:text-emerald-400 transition-colors py-2">{t.nav.blog}</a>
       </div>
-
       <div class="flex gap-4 text-xs font-bold text-white/50 border-l border-white/20 pl-6">
         <a href="#" class={`hover:text-white transition ${lang === 'fr' ? 'text-white' : ''}`} data-lang="fr">FR</a>
         <a href="#" class={`hover:text-white transition ${lang === 'en' ? 'text-white' : ''}`} data-lang="en">EN</a>
       </div>
     </div>
 
-    <button id="mobile-menu-btn" class="md:hidden z-50 text-white p-2">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <button id="mobile-menu-btn" class="md:hidden text-white p-2 hover:text-emerald-400 transition-colors focus:outline-none" aria-label="Menu">
+      <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <svg id="close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
   </nav>
 
-  <div id="mobile-menu" class="fixed inset-0 bg-neutral-950/95 backdrop-blur-xl z-40 hidden flex flex-col items-center justify-center gap-8">
-    <a href={`${linkPrefix}#home`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500">{t.nav.home}</a>
-    <a href={`${linkPrefix}#about`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500">{t.nav.about}</a>
-    <a href={`${linkPrefix}#services`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500">{t.nav.services}</a>
-    <a href={`${linkPrefix}#contact`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500">{t.nav.contact}</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-neutral-950/98 backdrop-blur-xl z-40 hidden flex flex-col items-center justify-center gap-10 opacity-0 transition-opacity duration-300">
     
-    <div class="flex gap-8 mt-8">
-      <button class="text-xl font-bold text-white/50 hover:text-white" data-lang="fr">FR</button>
-      <button class="text-xl font-bold text-white/50 hover:text-white" data-lang="en">EN</button>
+    <div class="flex flex-col items-center gap-8">
+        <a href={`${linkPrefix}#home`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500 transition-colors">{t.nav.home}</a>
+        <a href={`${linkPrefix}#about`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500 transition-colors">{t.nav.about}</a>
+        <a href={`${linkPrefix}#services`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500 transition-colors">{t.nav.services}</a>
+        <a href={`${linkPrefix}#contact`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500 transition-colors">{t.nav.contact}</a>
+        <a href={`${linkPrefix}#blog`} class="mobile-link text-3xl font-bold uppercase tracking-widest text-white hover:text-emerald-500 transition-colors">{t.nav.blog}</a>
+    </div>
+
+    <div class="w-12 h-[1px] bg-white/20 my-4"></div>
+
+    <div class="flex gap-10">
+      <button class="text-xl font-bold text-white/50 hover:text-white uppercase tracking-widest" data-lang="fr">FR</button>
+      <button class="text-xl font-bold text-white/50 hover:text-white uppercase tracking-widest" data-lang="en">EN</button>
     </div>
   </div>
 </header>
 
 <script>
-  // Menu Mobile
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
   const links = document.querySelectorAll('.mobile-link');
 
   if (btn && menu) {
     btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      document.body.style.overflow = menu.classList.contains('hidden') ? '' : 'hidden';
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+          menu.classList.remove('hidden');
+          // Petit délai pour l'animation d'opacité
+          setTimeout(() => menu.classList.remove('opacity-0'), 10);
+          menuIcon?.classList.add('hidden');
+          closeIcon?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+      } else {
+          menu.classList.add('opacity-0');
+          setTimeout(() => menu.classList.add('hidden'), 300);
+          menuIcon?.classList.remove('hidden');
+          closeIcon?.classList.add('hidden');
+          document.body.style.overflow = '';
+      }
     });
 
     links.forEach(l => l.addEventListener('click', () => {
-      menu.classList.add('hidden');
+      menu.classList.add('opacity-0');
+      setTimeout(() => menu.classList.add('hidden'), 300);
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
       document.body.style.overflow = '';
     }));
   }
 
-  // Switch Langue (Fonctionne même sur pages annexes)
+  // Logique Langue Site 4
   document.querySelectorAll('[data-lang]').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
       const lang = (e.currentTarget as HTMLElement).dataset.lang;
       document.cookie = `lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
-      
-      // On redirige vers la version traduite de la page actuelle si possible, ou accueil
-      const currentPath = window.location.pathname;
-      // Remplace /fr/ par /en/ ou inversement
-      const newPath = currentPath.replace(/^\/(fr|en)/, `/${lang}`);
+      const newPath = window.location.pathname.replace(/^\/(fr|en)/, `/${lang}`);
       window.location.href = newPath;
     });
   });
