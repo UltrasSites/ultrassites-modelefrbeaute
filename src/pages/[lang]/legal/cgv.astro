@@ -4,7 +4,12 @@ import { translations } from '../../../i18n/translations';
 
 // Note: adapter le chemin d'import selon la structure des dossiers
 export async function getStaticPaths() {
-  return [ { params: { lang: 'fr' } }, { params: { lang: 'en' } } ];
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'pt' } },
+    { params: { lang: 'es' } },
+  ];
 }
 const { lang } = Astro.params;
 const isEn = lang === 'en';

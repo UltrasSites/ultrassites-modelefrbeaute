@@ -23,6 +23,8 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
       <div class="flex gap-4 text-xs font-bold text-white/50 border-l border-white/20 pl-6">
         <button class="hover:text-white transition cursor-pointer uppercase" data-lang="fr">FR</button>
         <button class="hover:text-white transition cursor-pointer uppercase" data-lang="en">EN</button>
+        <button class="hover:text-white transition cursor-pointer uppercase" data-lang="pt">PT</button>
+        <button class="hover:text-white transition cursor-pointer uppercase" data-lang="es">ES</button>
       </div>
     </div>
   </nav>
@@ -80,6 +82,8 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
             <div class="flex gap-4">
                 <button class="text-xs font-bold text-white/50 hover:text-white uppercase tracking-widest border border-white/20 px-3 py-2 rounded hover:border-emerald-500 transition-all" data-lang="fr">FR</button>
                 <button class="text-xs font-bold text-white/50 hover:text-white uppercase tracking-widest border border-white/20 px-3 py-2 rounded hover:border-emerald-500 transition-all" data-lang="en">EN</button>
+                <button class="text-xs font-bold text-white/50 hover:text-white uppercase tracking-widest border border-white/20 px-3 py-2 rounded hover:border-emerald-500 transition-all" data-lang="pt">PT</button>
+                <button class="text-xs font-bold text-white/50 hover:text-white uppercase tracking-widest border border-white/20 px-3 py-2 rounded hover:border-emerald-500 transition-all" data-lang="es">ES</button>
             </div>
             
             <div class="text-[10px] text-white/30 uppercase tracking-widest">
@@ -163,7 +167,7 @@ const linkPrefix = isHome ? '' : `/${lang}/`;
       e.preventDefault();
       const lang = (e.currentTarget as HTMLElement).dataset.lang;
       document.cookie = `lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
-      const newPath = window.location.pathname.replace(/^\/(fr|en)/, `/${lang}`);
+      const newPath = window.location.pathname.replace(/^\/(fr|en|pt|es)/, `/${lang}`);
       window.location.href = newPath;
     });
   });

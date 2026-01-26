@@ -4,10 +4,15 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import { translations } from '../../i18n/translations';
 
 export async function getStaticPaths() {
-  return [ { params: { lang: 'fr' } }, { params: { lang: 'en' } } ];
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'pt' } },
+    { params: { lang: 'es' } },
+  ];
 }
 const { lang } = Astro.params;
-const t = translations[lang as 'fr' | 'en'];
+const t = translations[lang as 'fr' | 'en' | 'pt' | 'es'];
 ---
 
 <BaseLayout>

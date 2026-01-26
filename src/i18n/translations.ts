@@ -1,4 +1,4 @@
-export type Lang = 'fr' | 'en';
+export type Lang = 'fr' | 'en' | 'pt' | 'es';
 
 export interface ServiceItem {
   title: string;
@@ -254,6 +254,204 @@ export const translations: Record<Lang, Translation> = {
         date: "September 15, 2025",
         title: "Web security: why move past WordPress?",
         desc: "Security gaps in CMSs are costly. Lean code offers a stronger fortress for your data.",
+      },
+    ],
+  },
+  
+  pt: {
+    siteTitle: "PRO+",
+    ctaButton: "Iniciar Projeto",
+    heroCta: "Descobrir",
+
+    nav: {
+      home: "Início",
+      about: "O Artesão",
+      services: "Artesanato",
+      contact: "Fale Comigo",
+      legal: "Termos e Condições",
+      privacy: "Política de Privacidade",
+      blog: "Jornal",
+    },
+
+    heroTitle: "Elegância Bruta.",
+    heroSub: "PACOTE PRO+",
+    heroDesc:
+      "A web está saturada de ruído. Ofereço silêncio e impacto. Como criador independente, moldo sites únicos que combinam estética natural com desempenho técnico.",
+
+    aboutPageTitle: "Mais que um desenvolvedor, um arquiteto.",
+    aboutPageText:
+      "Minha abordagem é a de um artesão de arte. Não coloco tijolos pré-fabricados. Esculpo sua interface pixel por pixel. Meu objetivo? Que seu site seja único e traduza perfeitamente a essência do seu projeto.",
+    aboutBadge: "Artesanato Digital",
+    aboutExtra: "Sem templates. Sem carregamentos infinitos. Apenas código enxuto projetado para desempenho. Essa é a promessa PRO+.",
+
+    servicesSection: "Excelência Técnica",
+    servicesSubtitle: "Uma fusão entre estética natural e desempenho técnico.",
+    services: [
+      {
+        title: "Direção de Arte",
+        desc: "Tipografias cuidadosas e imagens imersivas para uma identidade visual marcante.",
+      },
+      {
+        title: "Experiência Sensorial",
+        desc: "Animações fluidas e micro-interações para criar uma experiência cativante.",
+      },
+      {
+        title: "Arquitetura Performante",
+        desc: "Código otimizado para consumo mínimo e carregamento instantâneo.",
+      },
+      {
+        title: "Referenciamento Orgânico",
+        desc: "Estrutura semântica otimizada para visibilidade natural nos motores de busca.",
+      },
+      {
+        title: "Integração Social",
+        desc: "Conexão harmoniosa com suas redes para um ecossistema digital coerente.",
+      },
+      {
+        title: "Segurança Reforçada",
+        desc: "Proteção avançada de seus dados e dos de seus usuários.",
+      },
+    ],
+    metrics: [
+      { value: "100%", label: "Desempenho" },
+      { value: "0s", label: "Espera" },
+      { value: "24/7", label: "Suporte" },
+    ],
+
+    contactTitle: "Vamos criar algo notável",
+    contactText:
+      "Procurando um parceiro exigente? Seleciono meus projetos para garantir qualidade impecável. Vamos discutir sua visão.",
+    contactNamePlaceholder: "Seu Nome",
+    contactEmailPlaceholder: "Email Profissional",
+    contactMessagePlaceholder: "Fale-me sobre sua visão...",
+    contactSend: "Enviar mensagem",
+    contactInfo: "Resposta personalizada em 24h.",
+    followMe: "Seguir meu trabalho",
+    locationTitle: "Estúdio / Localização",
+    contactCta: "Iniciar a colaboração",
+
+    footerText: "© 2026 — Feito à mão.",
+
+    blogTitle: "O Jornal.",
+    blogLinkLabel: "Ver todos os artigos →",
+    blogBadge: "Estratégia & Conteúdo",
+    blogPosts: [
+      {
+        badge: "SEO",
+        date: "12 Outubro 2025",
+        title: "Por que sites estáticos dominam o Google este ano.",
+        desc: "A velocidade não é mais opcional. Descubra como uma arquitetura estática otimizada impulsiona sua visibilidade...",
+      },
+      {
+        badge: "Design",
+        date: "28 Setembro 2025",
+        title: "O impacto do \"Modo Escuro\" na conversão do cliente.",
+        desc: "Uma interface escura não é apenas estética, reduz a fadiga ocular e aumenta o tempo gasto...",
+      },
+      {
+        badge: "Tech",
+        date: "15 Setembro 2025",
+        title: "Segurança web: por que abandonar o WordPress?",
+        desc: "As falhas de segurança dos CMS custam caro. O código enxuto oferece uma fortaleza inexpugnável para seus dados.",
+      },
+    ],
+  },
+  
+  es: {
+    siteTitle: "PRO+",
+    ctaButton: "Iniciar Proyecto",
+    heroCta: "Descubrir",
+
+    nav: {
+      home: "Inicio",
+      about: "El Artesano",
+      services: "Artesanía",
+      contact: "Hablemos",
+      legal: "Términos y Condiciones",
+      privacy: "Política de Privacidad",
+      blog: "Diario",
+    },
+
+    heroTitle: "Elegancia Cruda.",
+    heroSub: "PACOTE PRO+",
+    heroDesc:
+      "La web está saturada de ruido. Ofrezco silencio e impacto. Como creador independiente, moldeo sitios únicos que combinan estética natural con rendimiento técnico.",
+
+    aboutPageTitle: "Más que un desarrollador, un arquitecto.",
+    aboutPageText:
+      "Mi enfoque es el de un artesano de arte. No coloco ladrillos prefabricados. Esculpo su interfaz pixel por pixel. ¿Mi objetivo? Que su sitio sea único y traduzca perfectamente la esencia de su proyecto.",
+    aboutBadge: "Artesanía Digital",
+    aboutExtra: "Sin plantillas. Sin cargas infinitas. Solo código ligero diseñado para el rendimiento. Esa es la promesa PRO+.",
+
+    servicesSection: "Excelencia Técnica",
+    servicesSubtitle: "Una fusión entre estética natural y rendimiento técnico.",
+    services: [
+      {
+        title: "Dirección de Arte",
+        desc: "Tipografías cuidadosas e imágenes inmersivas para una identidad visual marcante.",
+      },
+      {
+        title: "Experiencia Sensorial",
+        desc: "Animaciones fluidas y micro-interacciones para crear una experiencia cautivadora.",
+      },
+      {
+        title: "Arquitectura Performante",
+        desc: "Código optimizado para consumo mínimo y carga instantánea.",
+      },
+      {
+        title: "Referenciamiento Orgánico",
+        desc: "Estructura semántica optimizada para visibilidad natural en los motores de búsqueda.",
+      },
+      {
+        title: "Integración Social",
+        desc: "Conexión armoniosa con sus redes para un ecosistema digital coherente.",
+      },
+      {
+        title: "Seguridad Reforzada",
+        desc: "Protección avanzada de sus datos y los de sus usuarios.",
+      },
+    ],
+    metrics: [
+      { value: "100%", label: "Rendimiento" },
+      { value: "0s", label: "Espera" },
+      { value: "24/7", label: "Soporte" },
+    ],
+
+    contactTitle: "Creemos algo notable",
+    contactText:
+      "¿Busca un socio exigente? Selecciono mis proyectos para garantizar calidad impecable. Hablemos de su visión.",
+    contactNamePlaceholder: "Su Nombre",
+    contactEmailPlaceholder: "Email Profesional",
+    contactMessagePlaceholder: "Hábleme de su visión...",
+    contactSend: "Enviar mensaje",
+    contactInfo: "Respuesta personalizada en 24h.",
+    followMe: "Seguir mi trabajo",
+    locationTitle: "Estudio / Ubicación",
+    contactCta: "Iniciar la colaboración",
+
+    footerText: "© 2026 — Hecho a mano.",
+
+    blogTitle: "El Diario.",
+    blogLinkLabel: "Ver todos los artículos →",
+    blogBadge: "Estrategia & Contenido",
+    blogPosts: [
+      {
+        badge: "SEO",
+        date: "12 Octubre 2025",
+        title: "Por qué los sitios estáticos lideran Google este año.",
+        desc: "La velocidad ya no es opcional. Descubra cómo una arquitectura estática optimizada impulsa su visibilidad...",
+      },
+      {
+        badge: "Design",
+        date: "28 Septiembre 2025",
+        title: "El impacto del \"Modo Oscuro\" en la conversión del cliente.",
+        desc: "Una interfaz oscura no es solo estética, reduce la fatiga ocular y aumenta el tiempo pasado...",
+      },
+      {
+        badge: "Tech",
+        date: "15 Septiembre 2025",
+        title: "Seguridad web: ¿por qué abandonar WordPress?",
+        desc: "Las brechas de seguridad de los CMS cuestan caro. El código ligero ofrece una fortaleza inexpugnable para sus datos.",
       },
     ],
   },

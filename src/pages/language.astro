@@ -37,20 +37,25 @@
     <div>
       <button id="fr">FRANÇAIS</button>
       <button id="en">ENGLISH</button>
+      <button id="pt">PORTUGUÊS</button>
+      <button id="es">ESPAÑOL</button>
     </div>
   </div>
   <script is:inline>
     function go(l) {
+      if (l !== 'fr' && l !== 'en' && l !== 'pt' && l !== 'es') return;
       document.cookie = `lang=${l}; Path=/; Max-Age=31536000; SameSite=Lax`;
       window.location.href = `/${l}/`;
     }
     document.getElementById('fr').addEventListener('click', () => go('fr'));
     document.getElementById('en').addEventListener('click', () => go('en'));
+    document.getElementById('pt').addEventListener('click', () => go('pt'));
+    document.getElementById('es').addEventListener('click', () => go('es'));
 
     const c = document.cookie.split('; ').find(r => r.startsWith('lang='));
     if(c) {
        const l = c.split('=')[1];
-       if(l==='fr'||l==='en') window.location.replace(`/${l}/`);
+       if(l==='fr'||l==='en'||l==='pt'||l==='es') window.location.replace(`/${l}/`);
     }
   </script>
 </body>
