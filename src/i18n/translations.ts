@@ -231,7 +231,7 @@ export const translations: Record<Lang, Translation> = {
     locationTitle: "Studio / Location",
     contactCta: "Start the collaboration",
 
-    footerText: "© 2026 — Handcrafted.",
+    footerText: "— Handcrafted.",
 
     blogTitle: "The Journal.",
     blogLinkLabel: "See all articles →",
@@ -429,7 +429,7 @@ export const translations: Record<Lang, Translation> = {
     locationTitle: "Estudio / Ubicación",
     contactCta: "Iniciar la colaboración",
 
-    footerText: "© 2026 — Hecho a mano.",
+    footerText: "— Hecho a mano.",
 
     blogTitle: "El Diario.",
     blogLinkLabel: "Ver todos los artículos →",
