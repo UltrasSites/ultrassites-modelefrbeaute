@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer base {
+    body {
+        @apply antialiased subpixel-antialiased;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
