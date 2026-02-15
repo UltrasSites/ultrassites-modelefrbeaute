@@ -31,8 +31,11 @@ const t = translations[lang as 'fr' | 'en' | 'pt' | 'es'];
           <h1 class="text-6xl md:text-8xl font-serif italic mb-6 leading-none animate-title-reveal">
             {t.heroTitle}
           </h1>
-          <p class="text-neutral-400 max-w-lg mx-auto leading-relaxed mb-10 animate-fade-in-up delay-200">
+          <p class="text-neutral-400 max-w-lg mx-auto leading-relaxed mb-6 animate-fade-in-up delay-200">
             {t.heroDesc}
+          </p>
+          <p class="text-xs text-neutral-500 max-w-md mx-auto mb-10 italic animate-fade-in-up delay-200">
+            {t.demoBanner}
           </p>
           <a href={`/${lang}/#services`} class="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-emerald-500 transition-colors animate-fade-in-up delay-300">
              {t.heroCta} <span class="group-hover:translate-y-1 transition-transform">↓</span>

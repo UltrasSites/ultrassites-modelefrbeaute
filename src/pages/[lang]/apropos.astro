@@ -18,7 +18,7 @@ const t = translations[lang as 'fr' | 'en' | 'pt' | 'es'];
 <BaseLayout>
   <div class="bg-neutral-950 min-h-screen text-white pt-40 pb-20">
     <section class="max-w-3xl mx-auto px-6">
-      <span class="block text-center text-purple-500 text-sm font-bold tracking-[0.3em] uppercase mb-8">Philosophie</span>
+      <span class="block text-center text-purple-500 text-sm font-bold tracking-[0.3em] uppercase mb-8">{t.aboutBadge}</span>
       <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">{t.aboutPageTitle}</h1>
       
       <div class="prose prose-invert prose-lg mx-auto text-neutral-400 font-light leading-loose">
@@ -26,15 +26,11 @@ const t = translations[lang as 'fr' | 'en' | 'pt' | 'es'];
           {t.aboutPageText}
         </p>
         <p>
-          Le Pack Signature est l'aboutissement de ma démarche technique. 
-          Contrairement aux CMS traditionnels qui alourdissent le web, ce site est généré statiquement. 
-          C'est comme conduire une voiture de course sur une autoroute vide : rien ne vous arrête.
+          {t.aboutExtra}
         </p>
       </div>
 
-      <div class="mt-20 border-t border-white/10 pt-10 text-center">
-        <p class="font-handwriting text-3xl text-white opacity-80" style="font-family: cursive;">Votre Futur Partenaire</p>
-      </div>
+      <p class="text-sm text-neutral-500 text-center mt-12 italic max-w-xl mx-auto">{t.demoBanner}</p>
     </section>
   </div>
 </BaseLayout>
