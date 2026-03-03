@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   // IMPORTANT : Cette ligne est obligatoire pour que "new URL()" fonctionne
-  site: 'https://mon-site-temporaire.pages.dev', 
+  site: 'https://ultras-sites.com', 
 
   output: 'static',
   build: {

@@ -1,38 +1,19 @@
 ---
-import { translations, type Lang } from "../i18n/translations";
-import { getLangFromUrl } from "../i18n/utils";
-import SocialLinks from "./SocialLinks.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = translations[lang as "fr" | "en"];
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-black text-white py-16 border-t border-white/10">
-  <div
-    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
-  >
+<footer class="bg-white text-gray-600 py-16 border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
     <div class="text-center md:text-left">
-      <span class="font-serif italic text-2xl">Signature.</span>
-      <p class="text-neutral-500 text-sm mt-2">
-        © {currentYear}
-        {t.footerText}
-      </p>
+      <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-5 h-5 text-[#D4B2A7]"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+         <span class="font-serif font-bold text-xl text-black tracking-widest">Beauté & <span class="text-[#D4B2A7]">Bien-être.</span></span>
+      </div>
+      <p class="text-gray-400 text-[10px] uppercase tracking-widest">© {currentYear} — Démo · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="hover:text-[#D4B2A7]">ultras-sites.com</a></p>
     </div>
 
-    <div
-      class="flex flex-col md:flex-row items-center gap-8 text-xs uppercase tracking-widest text-neutral-500"
-    >
-      <SocialLinks />
-      <div class="flex gap-6">
-        <a href={`/${lang}/legal/cgv`} class="hover:text-emerald-500 transition"
-          >{t.nav.legal}</a
-        >
-        <a
-          href={`/${lang}/legal/privacy`}
-          class="hover:text-emerald-500 transition">{t.nav.privacy}</a
-        >
-      </div>
+    <div class="flex flex-col md:flex-row items-center gap-8 text-[10px] uppercase tracking-widest text-gray-500 font-bold">
+      <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="hover:text-[#D4B2A7] transition-colors">ultras-sites.com</a>
     </div>
   </div>
 </footer>

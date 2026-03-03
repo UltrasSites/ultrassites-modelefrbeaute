@@ -1,11 +1,72 @@
 @import "tailwindcss";
+@import "@fontsource/cormorant-garamond/300.css";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/600.css";
 
 @layer base {
+    :root {
+        --color-bg: #FCFAF8; /* Nude très clair, lumineux */
+        --color-text: #2C2A29; /* Charbon doux, moins agressif que le noir */
+        --color-primary: #1A1A1A; /* Presque noir pour les titres */
+        --color-accent: #D4B2A7; /* Rose poudré / Nude foncé */
+        --color-accent-light: #F4EBE8; /* Fond de carte doux */
+        --font-salon: 'Cormorant Garamond', Georgia, serif;
+    }
+
     body {
-        @apply antialiased subpixel-antialiased;
+        @apply antialiased subpixel-antialiased text-[var(--color-text)];
+        font-family: var(--font-salon);
+        /* Fond premium : crème dégradé + effet douceur type blur */
+        background-color: #F5F0EB;
+        background-image:
+            radial-gradient(ellipse 160% 100% at 50% -20%, rgba(252, 250, 248, 0.95) 0%, transparent 55%),
+            radial-gradient(ellipse 120% 90% at 90% 50%, rgba(244, 238, 232, 0.5) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 80% at 10% 100%, rgba(240, 232, 225, 0.45) 0%, transparent 55%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: -50%;
+        z-index: -1;
+        background: radial-gradient(ellipse 80% 50% at 50% 30%, rgba(252, 250, 248, 0.4) 0%, transparent 60%);
+        filter: blur(80px);
+        pointer-events: none;
     }
 
     html {
         scroll-behavior: smooth;
     }
+
+    h1, h2, h3, .font-serif {
+        font-family: var(--font-salon);
+        color: var(--color-primary);
+    }
+}
+
+/* Animations d'apparition */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Utilitaires pour le Header Desktop dynamique */
+.nav-scrolled {
+    @apply bg-white/90 backdrop-blur-md border-b border-black/5 shadow-sm;
+}
+.nav-transparent {
+    @apply bg-transparent border-transparent;
+}
+
+/* Fond de section (s’harmonise avec le fond crème global) */
+.page-bg {
+    background-image: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(252, 250, 248, 0.5) 0%, transparent 55%);
 }

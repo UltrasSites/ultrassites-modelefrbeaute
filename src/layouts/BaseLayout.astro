@@ -1,73 +1,40 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { getLangFromUrl } from "../i18n/utils";
 import "../styles/global.css";
 
-const lang = getLangFromUrl(Astro.url);
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = Astro.props.title || "Beauté & Bien-être - Démo | ultras-sites.com";
+const description = Astro.props.description || "Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com.";
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <meta name="robots" content="index,follow" />
-    <link rel="shortcut icon" type="image/png" href="/pro+.png" />
-    <link rel="apple-touch-icon" href="/pro+.png" />
-
-    <title>Ultras Sites - Modèle PRO+</title>
-    <meta
-      name="description"
-      content="Modèle Pro+, ultra-performance et design sombre."
-    />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>{pageTitle}</title>
 
     <style is:inline>
-      /* Défaut : Dark Mode pur */
-      html {
-        background-color: #0a0a0a;
-        color: #ffffff;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      /* Protection FOUC */
-      html.js-loading body {
-        visibility: hidden;
-        opacity: 0;
-      }
-      body {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.3s ease-in;
-      }
+      html { background-color: #F5F0EB; visibility: hidden; opacity: 0; }
+      html.loaded { visibility: visible; opacity: 1; transition: opacity 0.5s ease-in; }
     </style>
 
     <script is:inline>
-      // Anti-FOUC
-      document.documentElement.classList.add("js-loading");
-      window.addEventListener("DOMContentLoaded", () =>
-        document.documentElement.classList.remove("js-loading"),
-      );
-      // Safety timeout
-      setTimeout(
-        () => document.documentElement.classList.remove("js-loading"),
-        500,
-      );
-
-      // Force Dark Mode by design
-      document.documentElement.classList.add("dark");
+      document.addEventListener("DOMContentLoaded", () => document.documentElement.classList.add("loaded"));
+      setTimeout(() => document.documentElement.classList.add("loaded"), 300);
     </script>
   </head>
 
-  <body class="bg-neutral-950 text-white antialiased">
+  <body class="text-[#2C2A29] antialiased selection:bg-[#D4B2A7] selection:text-white">
     <Header />
     <main>
       <slot />
