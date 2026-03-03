@@ -183,6 +183,73 @@
         color: #94a3b8 !important;
     }
 
+    html[data-theme='dark'] .text-gray-300,
+    html[data-theme='dark'] .text-gray-400 {
+        color: #64748b !important;
+    }
+
+    /* Calendrier / agenda : tous les chiffres et textes visibles en dark */
+    html[data-theme='dark'] #agenda-widget,
+    html[data-theme='dark'] #agenda-widget .font-serif {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #agenda-month-label,
+    html[data-theme='dark'] #agenda-days,
+    html[data-theme='dark'] #agenda-slots-label,
+    html[data-theme='dark'] #agenda-widget p,
+    html[data-theme='dark'] #agenda-widget span {
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button:not([disabled]) {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button[disabled],
+    html[data-theme='dark'] #agenda-dates button.text-gray-300 {
+        color: #64748b !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button.bg-black {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button.bg-black:hover {
+        background: #cbd5e1 !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #agenda-prev-month,
+    html[data-theme='dark'] #agenda-next-month {
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget .border-gray-100,
+    html[data-theme='dark'] #agenda-widget .border-gray-200 {
+        border-color: #475569 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button:hover:not([disabled]):not(.bg-black) {
+        background: #334155 !important;
+    }
+
+    html[data-theme='dark'] #agenda-slots button {
+        color: #e5e7eb !important;
+        border-color: #475569 !important;
+    }
+
+    html[data-theme='dark'] #agenda-slots button:hover {
+        border-color: #E3B8AA !important;
+        background: #334155 !important;
+    }
+
+    html[data-theme='dark'] #agenda .text-gray-500,
+    html[data-theme='dark'] #agenda .text-gray-700 {
+        color: #94a3b8 !important;
+    }
+
     html[data-theme='dark'] footer {
         background-color: #0f172a !important;
         border-color: #1e293b !important;
