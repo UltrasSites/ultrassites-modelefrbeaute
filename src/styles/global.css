@@ -53,6 +53,7 @@
         --color-primary: #f9fafb;
         --color-accent: #E3B8AA;
         --color-accent-light: #0f172a;
+        background-color: #020617 !important;
     }
 
     html[data-theme='dark'] body {
@@ -69,19 +70,121 @@
     }
 
     html[data-theme='dark'] .nav-scrolled {
-        @apply bg-slate-900/90 backdrop-blur-md border-slate-800 shadow-sm;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgb(30, 41, 59);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     html[data-theme='dark'] .nav-transparent {
-        @apply bg-slate-900/70 border-transparent;
+        background: rgba(15, 23, 42, 0.85);
+        border-color: transparent;
     }
 
-    html[data-theme='dark'] #desktop-header nav {
-        color: #e5e7eb;
+    /* Header desktop : fond et texte en dark */
+    html[data-theme='dark'] #desktop-header {
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgb(30, 41, 59);
+    }
+
+    html[data-theme='dark'] #desktop-header a,
+    html[data-theme='dark'] #desktop-header .font-serif,
+    html[data-theme='dark'] #desktop-header span {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #desktop-header a:hover {
+        color: #E3B8AA !important;
     }
 
     html[data-theme='dark'] #desktop-header nav a {
-        color: inherit;
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #desktop-header nav a:hover {
+        color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] #desktop-header .text-\[\#D4B2A7\] {
+        color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] #desktop-header svg {
+        color: #E3B8AA;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="prestations"] {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="prestations"]:hover {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="agenda"] {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="agenda"]:hover {
+        background: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta button {
+        background: rgba(226, 232, 240, 0.9) !important;
+        border-color: rgb(148, 163, 184) !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta button:hover {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    /* Sections et cartes en dark */
+    html[data-theme='dark'] section,
+    html[data-theme='dark'] .page-bg {
+        background-color: #0f172a !important;
+        background-image: none;
+    }
+
+    html[data-theme='dark'] .page-bg {
+        background-image: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(30, 41, 59, 0.6) 0%, transparent 55%);
+    }
+
+    html[data-theme='dark'] .bg-\[\#FCFAF8\] {
+        background-color: #1e293b !important;
+    }
+
+    html[data-theme='dark'] .bg-white {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+    }
+
+    html[data-theme='dark'] .text-black {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .text-gray-500,
+    html[data-theme='dark'] .text-gray-600,
+    html[data-theme='dark'] .text-gray-700 {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] footer {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] footer a {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] footer a:hover {
+        color: #E3B8AA !important;
     }
 }
 

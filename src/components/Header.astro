@@ -11,8 +11,8 @@ const socialLinks = [
 ];
 ---
 
-<!-- Desktop : logo + nav toujours visibles ; seuls les boutons droite apparaissent au scroll ; barre fine -->
-<header id="desktop-header" class="hidden md:flex fixed top-0 w-full z-50 transition-all duration-300 h-14 items-center justify-between px-6 md:px-8 nav-transparent hover:bg-white/95 hover:backdrop-blur-md">
+<!-- Desktop : logo + nav + boutons toujours visibles -->
+<header id="desktop-header" class="hidden md:flex fixed top-0 w-full z-50 transition-all duration-300 h-14 items-center justify-between px-6 md:px-8 nav-scrolled">
     <a href="/" class="flex items-center gap-2 group">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-6 h-6 text-[#D4B2A7] group-hover:text-black transition-colors"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
         <span class="text-lg font-serif tracking-[0.2em] text-black">Beauté & <span class="text-[#D4B2A7]">Bien-être.</span></span>
@@ -24,7 +24,7 @@ const socialLinks = [
         ))}
     </nav>
 
-    <div id="header-cta" class="header-reveal flex items-center gap-4 transition-all duration-300">
+    <div id="header-cta" class="flex items-center gap-4">
         <button
             type="button"
             class="flex items-center justify-center w-9 h-9 border border-gray-200/80 bg-white/80 text-gray-700 hover:bg-black hover:text-white rounded-full transition-colors"
@@ -116,33 +116,11 @@ const socialLinks = [
 </div>
 
 <style>
-    .header-reveal { opacity: 0; pointer-events: none; }
-    .header-reveal.header-visible { opacity: 1; pointer-events: auto; }
     .mobile-fab.mode-rdv { background: #D4B2A7; color: white; }
     .mobile-fab.mode-menu { background: #1a1a1a; color: white; }
 </style>
 
 <script>
-    const header = document.getElementById('desktop-header');
-    const headerCta = document.getElementById('header-cta');
-    const scrollThreshold = 100;
-
-    function updateHeader() {
-        if (!header) return;
-        const scrolled = window.scrollY > scrollThreshold;
-        headerCta?.classList.toggle('header-visible', scrolled);
-        if (scrolled) {
-            header.classList.remove('nav-transparent');
-            header.classList.add('nav-scrolled');
-        } else {
-            header.classList.add('nav-transparent');
-            header.classList.remove('nav-scrolled');
-        }
-    }
-
-    window.addEventListener('scroll', updateHeader);
-    updateHeader();
-
     const mobileFab = document.getElementById('mobile-menu-rdv-btn');
     const mobileFabLabel = document.getElementById('mobile-fab-label');
     const mobileFabBars = document.getElementById('mobile-fab-bars');
