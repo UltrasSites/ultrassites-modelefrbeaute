@@ -77,15 +77,25 @@
     }
 
     html[data-theme='dark'] .nav-transparent {
-        background: rgba(15, 23, 42, 0.85);
+        background: transparent !important;
         border-color: transparent;
+        backdrop-filter: none;
     }
 
-    /* Header desktop : fond et texte en dark */
-    html[data-theme='dark'] #desktop-header {
+    /* Header desktop : fond plein uniquement au scroll en dark */
+    html[data-theme='dark'] #desktop-header.nav-scrolled {
         background: rgba(15, 23, 42, 0.95) !important;
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgb(30, 41, 59);
+    }
+
+    html[data-theme='dark'] #desktop-header:not(.nav-scrolled) {
+        background: transparent !important;
+        border-bottom-color: transparent;
+    }
+
+    html[data-theme='dark'] #desktop-header.nav-transparent:hover {
+        background: rgba(15, 23, 42, 0.5) !important;
     }
 
     html[data-theme='dark'] #desktop-header a,
@@ -185,6 +195,75 @@
 
     html[data-theme='dark'] footer a:hover {
         color: #E3B8AA !important;
+    }
+
+    /* Hero en dark : voile noir, image au naturel, texte clair */
+    html[data-theme='dark'] .hero-overlay-radial {
+        background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 0%, rgba(2, 6, 23, 0.4) 50%, rgba(0, 0, 0, 0.85) 100%) !important;
+        opacity: 1 !important;
+    }
+
+    html[data-theme='dark'] .hero-overlay-linear {
+        background: linear-gradient(to right, rgba(2, 6, 23, 0.88) 0%, rgba(2, 6, 23, 0.5) 45%, transparent 100%) !important;
+    }
+
+    html[data-theme='dark'] .hero-bg-img {
+        opacity: 1 !important;
+    }
+
+    html[data-theme='dark'] .hero-section h1,
+    html[data-theme='dark'] .hero-section .text-black,
+    html[data-theme='dark'] .hero-section .text-black\/90 {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-black {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-black:hover {
+        background: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .hero-section .border-gray-300 {
+        border-color: rgba(226, 232, 240, 0.5) !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-transparent {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .hero-section .text-gray-500 {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] .hero-section .bg-white\/90 {
+        background: rgba(226, 232, 240, 0.9) !important;
+        color: #0f172a !important;
+        border-color: rgba(148, 163, 184, 0.5) !important;
+    }
+
+    html[data-theme='dark'] .hero-section .bg-white\/90:hover {
+        background: #E3B8AA !important;
+        border-color: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    /* Bouton menu mobile (RDV/Menu) en blanc en dark */
+    html[data-theme='dark'] .mobile-fab.mode-rdv,
+    html[data-theme='dark'] .mobile-fab.mode-menu {
+        background: #ffffff !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .mobile-fab .mobile-fab-text {
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .mobile-fab-bars span {
+        background: #0f172a !important;
     }
 }
 

@@ -35,11 +35,11 @@ const carouselImages = [
 
 <BaseLayout title="Beauté & Bien-être - Démo | ultras-sites.com" description="Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com.">
 
-  <section id="home" class="relative min-h-[95vh] md:min-h-screen w-full flex items-center justify-center px-6 pt-24 overflow-hidden">
+  <section id="home" class="hero-section relative min-h-[95vh] md:min-h-screen w-full flex items-center justify-center px-6 pt-24 overflow-hidden">
       <div class="absolute inset-0 z-0">
-          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins - démo institut & bien-être" class="w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" referrerpolicy="no-referrer" />
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#FCFAF8_100%)] opacity-60 md:opacity-65"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-[#FCFAF8]/92 via-[#FCFAF8]/65 to-transparent w-full md:w-2/3"></div>
+          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins - démo institut & bien-être" class="hero-bg-img w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+          <div class="hero-overlay hero-overlay-radial absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#FCFAF8_100%)] opacity-60 md:opacity-65"></div>
+          <div class="hero-overlay hero-overlay-linear absolute inset-0 bg-gradient-to-r from-[#FCFAF8]/92 via-[#FCFAF8]/65 to-transparent w-full md:w-2/3"></div>
       </div>
 
       <div class="relative z-10 max-w-7xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
