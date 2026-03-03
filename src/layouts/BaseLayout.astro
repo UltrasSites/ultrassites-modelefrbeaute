@@ -29,8 +29,25 @@ const description = Astro.props.description || "Démo site vitrine coiffure, ins
     </style>
 
     <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => document.documentElement.classList.add("loaded"));
+      document.addEventListener("DOMContentLoaded", () => {
+        document.documentElement.classList.add("loaded");
+        const stored = window.localStorage.getItem("theme");
+        if (stored === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      });
       setTimeout(() => document.documentElement.classList.add("loaded"), 300);
+
+      window.__toggleTheme = function () {
+        const root = document.documentElement;
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        if (next === "light") {
+          root.removeAttribute("data-theme");
+        } else {
+          root.dataset.theme = "dark";
+        }
+        window.localStorage.setItem("theme", next);
+      };
     </script>
   </head>
 

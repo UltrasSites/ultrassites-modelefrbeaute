@@ -2,7 +2,9 @@
 const links = [
   { name: "L'Institut", href: "/#institut" },
   { name: "Prestations", href: "/#prestations" },
+  { name: "Agenda", href: "/#agenda" },
   { name: "Avis", href: "/#avis" },
+  { name: "Contact", href: "/#contact" },
 ];
 const socialLinks = [
   { name: "ultras-sites", href: "https://ultras-sites.com", icon: "link" },
@@ -23,6 +25,10 @@ const socialLinks = [
     </nav>
 
     <div id="header-cta" class="header-reveal flex items-center gap-4 transition-all duration-300">
+        <button type="button" class="px-3 py-2 border border-gray-200/80 bg-white/80 text-[9px] uppercase tracking-[0.18em] text-gray-700 hover:bg-black hover:text-white transition-colors rounded-sm"
+                onclick="window.__toggleTheme && window.__toggleTheme()">
+            Thème
+        </button>
         <a href="/#prestations" class="text-[9px] font-bold uppercase tracking-widest text-gray-500 hover:text-black transition-colors">Voir offres</a>
         <a href="/#agenda" class="px-5 py-2.5 bg-black text-white text-[9px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">Prendre RDV</a>
     </div>

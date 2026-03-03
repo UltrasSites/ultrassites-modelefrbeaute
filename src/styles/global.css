@@ -46,6 +46,17 @@
         font-family: var(--font-salon);
         color: var(--color-primary);
     }
+
+    html[data-theme='dark'] body {
+        background-color: #111827;
+        color: #e5e7eb;
+        filter: invert(1) hue-rotate(180deg);
+    }
+
+    html[data-theme='dark'] img,
+    html[data-theme='dark'] video {
+        filter: invert(1) hue-rotate(180deg);
+    }
 }
 
 /* Animations d'apparition */
