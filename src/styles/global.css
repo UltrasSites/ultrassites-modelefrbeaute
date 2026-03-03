@@ -47,15 +47,41 @@
         color: var(--color-primary);
     }
 
-    html[data-theme='dark'] body {
-        background-color: #111827;
-        color: #e5e7eb;
-        filter: invert(1) hue-rotate(180deg);
+    html[data-theme='dark'] {
+        --color-bg: #020617;
+        --color-text: #e5e7eb;
+        --color-primary: #f9fafb;
+        --color-accent: #E3B8AA;
+        --color-accent-light: #0f172a;
     }
 
-    html[data-theme='dark'] img,
-    html[data-theme='dark'] video {
-        filter: invert(1) hue-rotate(180deg);
+    html[data-theme='dark'] body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        background-image:
+            radial-gradient(ellipse 160% 100% at 50% -20%, rgba(15, 23, 42, 0.9) 0%, transparent 55%),
+            radial-gradient(ellipse 120% 90% at 90% 50%, rgba(30, 64, 175, 0.25) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 80% at 10% 100%, rgba(15, 23, 42, 0.7) 0%, transparent 55%);
+    }
+
+    html[data-theme='dark'] body::before {
+        background: radial-gradient(ellipse 80% 50% at 50% 30%, rgba(15, 23, 42, 0.6) 0%, transparent 60%);
+    }
+
+    html[data-theme='dark'] .nav-scrolled {
+        @apply bg-slate-900/90 backdrop-blur-md border-slate-800 shadow-sm;
+    }
+
+    html[data-theme='dark'] .nav-transparent {
+        @apply bg-slate-900/70 border-transparent;
+    }
+
+    html[data-theme='dark'] #desktop-header nav {
+        color: #e5e7eb;
+    }
+
+    html[data-theme='dark'] #desktop-header nav a {
+        color: inherit;
     }
 }
 
@@ -75,6 +101,19 @@
 }
 .nav-transparent {
     @apply bg-transparent border-transparent;
+}
+
+/* Icônes du bouton de thème (soleil / lune) */
+.theme-toggle-icon-moon {
+    display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-sun {
+    display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-moon {
+    display: inline-block;
 }
 
 /* Fond de section (s’harmonise avec le fond crème global) */

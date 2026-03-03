@@ -25,9 +25,23 @@ const socialLinks = [
     </nav>
 
     <div id="header-cta" class="header-reveal flex items-center gap-4 transition-all duration-300">
-        <button type="button" class="px-3 py-2 border border-gray-200/80 bg-white/80 text-[9px] uppercase tracking-[0.18em] text-gray-700 hover:bg-black hover:text-white transition-colors rounded-sm"
-                onclick="window.__toggleTheme && window.__toggleTheme()">
-            Thème
+        <button
+            type="button"
+            class="flex items-center justify-center w-9 h-9 border border-gray-200/80 bg-white/80 text-gray-700 hover:bg-black hover:text-white rounded-full transition-colors"
+            onclick="window.__toggleTheme && window.__toggleTheme()"
+            aria-label="Changer le thème clair/sombre"
+        >
+            <span class="theme-toggle-icon-sun">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2.5M12 19.5V22M4.22 4.22l1.77 1.77M17.99 17.99l1.79 1.79M2 12h2.5M19.5 12H22M4.22 19.78l1.77-1.77M17.99 6.01l1.79-1.79" />
+                </svg>
+            </span>
+            <span class="theme-toggle-icon-moon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 17a7 7 0 009-4.21z" />
+                </svg>
+            </span>
         </button>
         <a href="/#prestations" class="text-[9px] font-bold uppercase tracking-widest text-gray-500 hover:text-black transition-colors">Voir offres</a>
         <a href="/#agenda" class="px-5 py-2.5 bg-black text-white text-[9px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">Prendre RDV</a>
@@ -42,8 +56,27 @@ const socialLinks = [
     </a>
 </div>
 
-<!-- Mobile : bouton appeler + un seul bouton Menu/RDV (réseaux dans le hero) -->
+<!-- Mobile : bouton thème + bouton appeler + bouton Menu/RDV (réseaux dans le hero) -->
 <div class="md:hidden fixed bottom-6 right-6 z-[60] flex flex-col gap-3 items-end">
+    <button
+        type="button"
+        class="w-14 h-14 bg-white border border-gray-100 text-black rounded-full shadow-[0_8px_24px_rgb(0,0,0,0.12)] flex items-center justify-center active:scale-95 transition-transform shrink-0"
+        onclick="window.__toggleTheme && window.__toggleTheme()"
+        aria-label="Changer le thème clair/sombre"
+    >
+        <span class="theme-toggle-icon-sun">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2.5M12 19.5V22M4.22 4.22l1.77 1.77M17.99 17.99l1.79 1.79M2 12h2.5M19.5 12H22M4.22 19.78l1.77-1.77M17.99 6.01l1.79-1.79" />
+            </svg>
+        </span>
+        <span class="theme-toggle-icon-moon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 17a7 7 0 009-4.21z" />
+            </svg>
+        </span>
+    </button>
+
     <a href="/#contact" class="w-14 h-14 bg-white border border-gray-100 text-black rounded-full shadow-[0_8px_24px_rgb(0,0,0,0.12)] flex items-center justify-center active:scale-95 transition-transform shrink-0" aria-label="Contact">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
     </a>
@@ -57,7 +90,7 @@ const socialLinks = [
 
 <div id="mobile-drawer" class="fixed inset-0 z-50 translate-y-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) md:hidden flex items-end">
     <div id="backdrop" class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
-    <div class="drawer-panel relative w-full bg-[#FCFAF8] rounded-t-3xl shadow-2xl flex flex-col p-8 pb-32 h-[80vh] max-h-[85vh]">
+    <div class="drawer-panel relative w-full bg-[#FCFAF8] rounded-t-3xl shadow-2xl flex flex-col p-6 pb-24 max-h-[85vh]">
         <div class="flex justify-between items-center mb-8">
             <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">Navigation</span>
             <button id="close-btn" type="button" class="p-2.5 text-gray-400 hover:text-black rounded-full bg-white/90 shadow-md hover:shadow-lg transition-all" aria-label="Fermer">
@@ -65,7 +98,7 @@ const socialLinks = [
             </button>
         </div>
 
-        <nav class="flex flex-col gap-6 flex-1 overflow-auto">
+        <nav class="flex flex-col gap-4">
             {links.map(link => (
                 <a href={link.href} class="drawer-link text-2xl font-serif text-black hover:text-[#D4B2A7] transition-colors py-1">{link.name}</a>
             ))}
