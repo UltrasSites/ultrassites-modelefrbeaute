@@ -4,11 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Fond hero : placez votre image (salle de soins) dans public/hero-institut.png — sinon le fallback s'affiche
 const heroBg = "/hero-institut.png";
 const heroBgFallback = "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop";
-// Photo Rita (contact) : public/rita.jpg ou fallback
-const ritaPhoto = "/rita.jpg";
-const ritaPhotoFallback = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop";
+// Photo de contact (fondatrice / équipe) : public/contact.jpg ou fallback
+const contactPhoto = "/contact.jpg";
+const contactPhotoFallback = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop";
 
-// Prestations détaillées avec prix (aligné institut-rita.ch)
+// Prestations détaillées avec prix (démo institut / coiffure / barber)
 const prestations = [
     { category: "Coiffure", title: "Coiffure femme & homme", services: ["Coupe", "Coloration", "Brushing", "Barber"], prices: ["à partir de 35 €", "sur devis", "à partir de 25 €", "à partir de 28 €"], desc: "Coupes, colorations et soins pour toute la famille.", img: "" },
     { category: "Instituts & bien-être", title: "Soins & bien-être", services: ["Soins du visage", "Massages", "Épilation", "Ongles"], prices: ["sur devis", "sur devis", "sur devis", "à partir de 25 €"], desc: "Soins personnalisés et moments de détente.", img: "" },
@@ -16,11 +16,11 @@ const prestations = [
     { category: "Barber", title: "Barber & barbier", services: ["Barbe", "Coupe homme", "Rasage traditionnel"], prices: ["à partir de 15 €", "à partir de 28 €", "à partir de 25 €"], desc: "Coupe et entretien de la barbe, style barbershop.", img: "" }
 ];
 
-// Avis dans l’esprit du salon (institut-rita.ch : zen, personnalisé, bien-être)
+// Avis fictifs pour la démo (institut, coiffure, barber, bien-être)
 const avis = [
-    { name: "C. M.", text: "Un salon zen et chaleureux. Soins personnalisés de grande qualité, je reviens toujours avec plaisir." },
-    { name: "S. D.", text: "L’Institut RITA est une vraie parenthèse bien-être. Accueil et professionnalisme au top." },
-    { name: "L. B.", text: "J’y vais depuis des années. Un lieu apaisant où le bien-être est vraiment la priorité." }
+    { name: "C. M.", text: "Ce site de démo reflète parfaitement l'ambiance d'un salon de beauté moderne. Idéal pour présenter soins visage, coiffure et onglerie." },
+    { name: "S. D.", text: "En tant qu'institut, on voit tout de suite comment présenter ses prestations, ses tarifs et la prise de rendez-vous en ligne." },
+    { name: "L. B.", text: "Parfait pour un barber ou un salon mixte : les sections et l'agenda sont déjà prêts, il ne reste qu'à personnaliser." }
 ];
 
 // Images correspondant aux services (soins visage, onglerie, épilation, spa) — URLs stables
@@ -37,7 +37,7 @@ const carouselImages = [
 
   <section id="home" class="relative min-h-[95vh] md:min-h-screen w-full flex items-center justify-center px-6 pt-24 overflow-hidden">
       <div class="absolute inset-0 z-0">
-          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins Institut RITA" class="w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins - démo institut & bien-être" class="w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" referrerpolicy="no-referrer" />
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#FCFAF8_100%)] opacity-60 md:opacity-65"></div>
           <div class="absolute inset-0 bg-gradient-to-r from-[#FCFAF8]/92 via-[#FCFAF8]/65 to-transparent w-full md:w-2/3"></div>
       </div>
@@ -54,8 +54,8 @@ const carouselImages = [
               </div>
               <div class="flex flex-col gap-4 pt-2 md:hidden">
                   <div class="flex flex-col sm:flex-row gap-4">
-                      <a href="/#agenda" class="flex items-center justify-center px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#D4B2A7] transition-all shadow-xl">Prendre rendez-vous</a>
-                      <a href="#prestations" class="flex items-center justify-center px-8 py-4 bg-transparent border border-gray-300 text-black font-bold uppercase tracking-[0.2em] text-[10px] hover:border-black transition-colors">Voir nos offres</a>
+                      <a href="/#agenda" class="flex items-center justify-center px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#D4B2A7] transition-all shadow-xl">Prendre rendez-vous</a>
+                      <a href="#prestations" class="flex items-center justify-center px-8 py-4 bg-transparent border border-gray-300 text-black font-bold uppercase tracking-[0.2em] text-xs hover:border-black transition-colors">Voir nos offres</a>
                   </div>
                   <div class="flex gap-3">
                       <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-11 h-11 rounded-full bg-white/95 shadow-md border border-gray-200 text-[#C19A8E] hover:bg-[#D4B2A7] hover:text-white hover:border-[#D4B2A7] transition-all shrink-0" aria-label="Instagram">
@@ -68,14 +68,14 @@ const carouselImages = [
               </div>
           </div>
           <div class="hidden md:flex flex-col items-center text-center animate-fade-in-up order-first md:order-last">
-              <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4B2A7] mb-4">Votre contact</p>
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7] mb-4">Votre contact</p>
               <a href="/#agenda" class="block relative w-48 h-56 overflow-hidden rounded-xl shadow-2xl border border-[#D4B2A7]/30 group">
-                  <img id="rita-img" src={ritaPhotoFallback} data-original={ritaPhoto} alt="Rita — Institut RITA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="192" height="224" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+                  <img id="contact-img" src={contactPhotoFallback} data-original={contactPhoto} alt="Portrait - démo institut & bien-être" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="192" height="224" loading="eager" decoding="async" referrerpolicy="no-referrer" />
               </a>
-              <p class="text-sm font-serif text-black mt-3">Rita</p>
+              <p class="text-sm font-serif text-black mt-3">Votre experte beauté (démo)</p>
               <div class="flex flex-col sm:flex-row gap-3 mt-6 w-full max-w-xs">
-                  <a href="/#agenda" class="flex items-center justify-center px-6 py-3.5 bg-black text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#D4B2A7] transition-all rounded-lg">Prendre rendez-vous</a>
-                  <a href="#prestations" class="flex items-center justify-center px-6 py-3.5 border border-[#D4B2A7] text-black font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#F4EBE8] transition-colors rounded-lg">Voir nos offres</a>
+                  <a href="/#agenda" class="flex items-center justify-center px-6 py-3.5 bg-black text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#D4B2A7] transition-all rounded-lg">Prendre rendez-vous</a>
+                  <a href="#prestations" class="flex items-center justify-center px-6 py-3.5 border border-[#D4B2A7] text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#F4EBE8] transition-colors rounded-lg">Voir nos offres</a>
               </div>
           </div>
       </div>
@@ -86,14 +86,14 @@ const carouselImages = [
           <div class="lg:col-span-7 space-y-8 order-2 lg:order-1">
               <div class="flex items-center gap-4 mb-8">
                   <div class="w-12 h-px bg-[#D4B2A7]"></div>
-                  <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">L'Éthique Rita</span>
+                  <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">L'esprit de votre site</span>
               </div>
-              <h2 class="text-4xl md:text-5xl font-serif text-black leading-tight">"Le maquillage permanent ne doit pas transformer, il doit révéler."</h2>
+              <h2 class="text-4xl md:text-5xl font-serif text-black leading-tight">"Un site qui met en valeur votre institut, votre salon ou votre barber."</h2>
               <div class="text-gray-600 font-light leading-relaxed space-y-6 text-lg">
-                  <p>C'est avec cette philosophie que j'ai fondé l'institut. Mon objectif n'est pas d'appliquer des calques standards, mais de lire la morphologie de votre visage pour en faire ressortir la symétrie et la douceur.</p>
-                  <p>Spécialisée en techniques de micro-pigmentation avancées, j'utilise exclusivement des pigments organiques de qualité médicale. Chaque détail compte : de la couleur de votre peau à l'inclinaison de votre arcade sourcilière.</p>
+                  <p>Ce modèle de site vitrine est pensé pour les instituts, soins du visage, salons de coiffure, barbershops et centres bien-être. Il vous permet de présenter clairement vos prestations, vos tarifs et votre univers.</p>
+                  <p>Tout est démo : visuels, textes, tarifs. Lors de la mise en ligne, nous adaptons chaque bloc à votre identité, votre quartier et votre clientèle, afin que votre présence en ligne reflète vraiment votre savoir-faire.</p>
               </div>
-              <p class="font-serif text-2xl text-[#D4B2A7] tracking-widest pt-4">Rita.</p>
+              <p class="font-serif text-2xl text-[#D4B2A7] tracking-widest pt-4">Votre futur site.</p>
           </div>
           <div class="lg:col-span-5 order-1 lg:order-2 relative px-8 lg:px-0">
               <div class="absolute top-8 -right-4 w-full h-full border border-[#D4B2A7] z-0 hidden md:block"></div>
@@ -108,7 +108,7 @@ const carouselImages = [
   </section>
 
   <section class="py-20 bg-[#FCFAF8] overflow-hidden border-y border-gray-100/80 flex flex-col gap-8 page-bg">
-      <div class="text-center px-6"><span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">Immersion</span></div>
+      <div class="text-center px-6"><span class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">Immersion</span></div>
       <p class="md:hidden text-center text-xs text-gray-500 px-4">Glissez de gauche à droite pour changer de photo.</p>
       <div id="immersion-carousel" class="relative w-full max-w-7xl mx-auto px-4 md:px-12">
           <button type="button" id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/95 shadow-lg border border-gray-100 flex items-center justify-center text-black hover:bg-[#D4B2A7] hover:text-white hover:border-[#D4B2A7] transition-all" aria-label="Image précédente">
@@ -133,13 +133,13 @@ const carouselImages = [
       <div class="max-w-6xl mx-auto">
           <div class="text-center mb-16">
               <h2 class="text-4xl md:text-5xl font-serif mb-6 text-black">Nos prestations</h2>
-              <p class="text-gray-500 font-light max-w-lg mx-auto">Soins du visage, maquillage, onglerie et épilation. Détail des services et tarifs.</p>
+              <p class="text-gray-500 font-light max-w-lg mx-auto">Soins visage, coiffure, barber, onglerie et bien-être : exemple de prestations et de tarifs à personnaliser pour votre établissement.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-8 mb-14">
               {prestations.map((item) => (
                   <div class="presta-card group relative p-6 bg-white border border-gray-100 rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] hover:border-[#D4B2A7]/30 transition-all duration-300">
                       <div class="flex gap-5 mb-4">
-                          <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl bg-[#F4EBE8] flex items-center justify-center text-[10px] text-[#D4B2A7] font-bold">Démo</div>
+                          <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl bg-[#F4EBE8] flex items-center justify-center text-xs text-[#D4B2A7] font-bold">Démo</div>
                           <div class="min-w-0 flex-1">
                               <span class="text-[9px] font-bold uppercase tracking-widest text-[#D4B2A7] mb-1 block">{item.category}</span>
                               <h3 class="text-lg font-serif text-black">{item.title}</h3>
@@ -158,7 +158,7 @@ const carouselImages = [
               ))}
           </div>
           <div class="text-center">
-              <a href="/#agenda" class="inline-flex items-center justify-center gap-2 px-10 py-4 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-xl shadow-lg">Prendre rendez-vous</a>
+              <a href="/#agenda" class="inline-flex items-center justify-center gap-2 px-10 py-4 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-xl shadow-lg">Prendre rendez-vous</a>
           </div>
       </div>
   </section>
@@ -185,14 +185,14 @@ const carouselImages = [
                           <button type="button" id="agenda-next-month" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500" aria-label="Mois suivant">›</button>
                       </div>
                   </div>
-                  <div id="agenda-days" class="grid grid-cols-7 gap-1 mb-6 text-center text-[10px] font-bold uppercase text-gray-400">Lun Mar Mer Jeu Ven Sam Dim</div>
+                  <div id="agenda-days" class="grid grid-cols-7 gap-1 mb-6 text-center text-xs font-bold uppercase text-gray-400">Lun Mar Mer Jeu Ven Sam Dim</div>
                   <div id="agenda-dates" class="grid grid-cols-7 gap-1 mb-8"></div>
                   <div id="agenda-slots-wrap" class="mb-6 hidden">
                       <span id="agenda-slots-label" class="text-xs text-gray-500 font-bold uppercase tracking-widest mb-3 block"></span>
                       <div id="agenda-slots" class="grid grid-cols-3 gap-2"></div>
                   </div>
-                  <p class="text-[10px] text-gray-400 mb-4">Réservation démo. En production : intégration MyCockpit (localsearch.ch) pour confirmer le RDV.</p>
-                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="block w-full text-center py-4 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-lg">Contact ultras-sites.com</a>
+                  <p class="text-xs text-gray-400 mb-4">Réservation démo. En production : intégration MyCockpit (localsearch.ch) pour confirmer le RDV.</p>
+                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="block w-full text-center py-4 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-lg">Contact ultras-sites.com</a>
               </div>
           </div>
       </div>
@@ -200,7 +200,8 @@ const carouselImages = [
 
   <section id="avis" class="py-32 px-6 bg-[#FCFAF8]">
       <div class="max-w-7xl mx-auto text-center">
-          <h2 class="text-3xl font-serif mb-12 text-black">Ce qu'elles en pensent</h2>
+          <h2 class="text-3xl font-serif mb-3 text-black">Avis fictifs sur la démo</h2>
+          <p class="text-xs text-gray-400 mb-10">Témoignages inventés pour illustrer le rendu d'un site d'institut, de salon de coiffure ou de barber.</p>
           <div class="grid md:grid-cols-3 gap-10">
               {avis.map((avi) => (
                   <div class="bg-white p-10 shadow-[0_10px_40px_rgb(0,0,0,0.03)] border border-gray-50 relative group hover:-translate-y-2 transition-transform duration-500">
@@ -209,7 +210,7 @@ const carouselImages = [
                       <div class="flex items-center justify-center gap-1 mb-3 text-[#D4B2A7]">
                           {[1,2,3,4,5].map(() => <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
                       </div>
-                      <p class="text-[10px] font-bold uppercase tracking-widest text-black">{avi.name}</p>
+                      <p class="text-xs font-bold uppercase tracking-widest text-black">{avi.name}</p>
                   </div>
               ))}
           </div>
@@ -230,7 +231,7 @@ const carouselImages = [
                           <span class="text-gray-500">Démo · Vos coordonnées ici</span>
                       </li>
                   </ul>
-                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="inline-block mt-6 px-6 py-3 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">ultras-sites.com</a>
+                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="inline-block mt-6 px-6 py-3 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">ultras-sites.com</a>
               </div>
               <div class="bg-white p-10 rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.04)] border border-gray-50">
                   <h3 class="text-xl font-serif text-black mb-6">Demande de contact</h3>
@@ -239,7 +240,7 @@ const carouselImages = [
                       <input type="text" placeholder="Votre nom" class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none text-sm" />
                       <input type="email" placeholder="Email" class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none text-sm" />
                       <textarea rows="3" placeholder="Votre message" class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none resize-none text-sm"></textarea>
-                      <button type="button" class="w-full py-4 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">Envoyer</button>
+                      <button type="button" class="w-full py-4 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">Envoyer</button>
                   </form>
               </div>
           </div>
@@ -265,7 +266,7 @@ const carouselImages = [
 </style>
 
 <script>
-    // Hero et Rita : charger l’image locale si elle existe, sinon garder le fallback déjà en src
+    // Hero et photo de contact : charger l’image locale si elle existe, sinon garder le fallback déjà en src
     document.querySelectorAll<HTMLImageElement>('img[data-original]').forEach((img) => {
         const orig = img.dataset.original;
         if (orig && orig.startsWith('/')) {
