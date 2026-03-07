@@ -12,6 +12,9 @@ const description = Astro.props.description || "Démo site vitrine coiffure, ins
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      (function(){var t=typeof localStorage!=='undefined'&&localStorage.getItem('theme');if(!t){localStorage.setItem('theme','dark');document.documentElement.dataset.theme='dark';}else if(t==='dark'){document.documentElement.dataset.theme='dark';}})();
+    </script>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={Astro.url.href} />
@@ -31,10 +34,6 @@ const description = Astro.props.description || "Démo site vitrine coiffure, ins
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.classList.add("loaded");
-        const stored = window.localStorage.getItem("theme");
-        if (stored === "dark") {
-          document.documentElement.dataset.theme = "dark";
-        }
       });
       setTimeout(() => document.documentElement.classList.add("loaded"), 300);
 

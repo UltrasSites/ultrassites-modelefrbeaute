@@ -163,36 +163,38 @@ const carouselImages = [
       </div>
   </section>
 
-  <section id="agenda" class="py-32 px-6 bg-white border-t border-gray-100 relative">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-8">
-              <h2 class="text-4xl md:text-5xl font-serif text-black leading-tight">Prenez du temps <br>pour vous.</h2>
-              <p class="text-gray-500 font-light leading-relaxed">Choisissez le jour et l'heure qui vous conviennent. Une confirmation vous sera envoyée. Compatible MyCockpit pour la prise de rendez-vous en ligne.</p>
-              <ul class="space-y-4 pt-4">
-                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Paiement sécurisé ou sur place</li>
-                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Rappel SMS 24h avant</li>
-                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Modification gratuite jusqu'à 48h</li>
+  <section id="agenda" class="py-16 md:py-32 px-4 md:px-6 bg-white border-t border-gray-100 relative">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="space-y-6 md:space-y-8 order-2 lg:order-1">
+              <h2 class="text-3xl md:text-5xl font-serif text-black leading-tight">Prenez du temps <br>pour vous.</h2>
+              <p class="text-gray-500 font-light leading-relaxed text-sm md:text-base">Choisissez le jour et l'heure qui vous conviennent. Une confirmation vous sera envoyée. Compatible MyCockpit pour la prise de rendez-vous en ligne.</p>
+              <ul class="space-y-3 md:space-y-4 pt-2 md:pt-4">
+                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Paiement sécurisé ou sur place</li>
+                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Rappel SMS 24h avant</li>
+                  <li class="flex items-center gap-3 text-sm text-gray-700"><svg class="w-5 h-5 text-[#D4B2A7] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Modification gratuite jusqu'à 48h</li>
               </ul>
           </div>
-          <div id="agenda-widget" class="bg-white rounded-2xl shadow-[0_20px_50px_rgb(0,0,0,0.08)] border border-gray-100 p-8 md:p-10 relative overflow-hidden">
-              <div class="absolute top-0 right-0 w-32 h-32 bg-[#F4EBE8] rounded-bl-full opacity-50"></div>
+          <div id="agenda-widget" class="bg-white rounded-2xl shadow-[0_20px_50px_rgb(0,0,0,0.08)] border border-gray-100 p-4 sm:p-6 md:p-10 relative overflow-hidden order-1 lg:order-2 w-full max-w-md mx-auto lg:max-w-none">
+              <div class="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-[#F4EBE8] rounded-bl-full opacity-50"></div>
               <div class="relative z-10">
-                  <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                      <span class="font-serif text-xl">Sélectionnez une date</span>
-                      <div class="flex items-center gap-2">
-                          <button type="button" id="agenda-prev-month" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500" aria-label="Mois précédent">‹</button>
-                          <span id="agenda-month-label" class="text-xs text-gray-600 uppercase tracking-widest font-bold min-w-[7rem] text-center"></span>
-                          <button type="button" id="agenda-next-month" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500" aria-label="Mois suivant">›</button>
+                  <div class="flex justify-between items-center mb-4 md:mb-6 border-b border-gray-100 pb-3 md:pb-4">
+                      <span class="font-serif text-lg md:text-xl">Sélectionnez une date</span>
+                      <div class="flex items-center gap-1 md:gap-2">
+                          <button type="button" id="agenda-prev-month" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500 text-lg md:text-base" aria-label="Mois précédent">‹</button>
+                          <span id="agenda-month-label" class="text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest font-bold min-w-[5rem] sm:min-w-[7rem] text-center"></span>
+                          <button type="button" id="agenda-next-month" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500 text-lg md:text-base" aria-label="Mois suivant">›</button>
                       </div>
                   </div>
-                  <div id="agenda-days" class="grid grid-cols-7 gap-1 mb-6 text-center text-xs font-bold uppercase text-gray-400">Lun Mar Mer Jeu Ven Sam Dim</div>
-                  <div id="agenda-dates" class="grid grid-cols-7 gap-1 mb-8"></div>
-                  <div id="agenda-slots-wrap" class="mb-6 hidden">
-                      <span id="agenda-slots-label" class="text-xs text-gray-500 font-bold uppercase tracking-widest mb-3 block"></span>
-                      <div id="agenda-slots" class="grid grid-cols-3 gap-2"></div>
+                  <div id="agenda-days" class="grid grid-cols-7 gap-0.5 sm:gap-1 mb-2 md:mb-4 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-400">
+                      <span class="agenda-day-name">Lun</span><span class="agenda-day-name">Mar</span><span class="agenda-day-name">Mer</span><span class="agenda-day-name">Jeu</span><span class="agenda-day-name">Ven</span><span class="agenda-day-name">Sam</span><span class="agenda-day-name">Dim</span>
                   </div>
-                  <p class="text-xs text-gray-400 mb-4">Réservation démo. En production : intégration MyCockpit (localsearch.ch) pour confirmer le RDV.</p>
-                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="block w-full text-center py-4 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-lg">Contact ultras-sites.com</a>
+                  <div id="agenda-dates" class="grid grid-cols-7 gap-0.5 sm:gap-1 mb-6 md:mb-8"></div>
+                  <div id="agenda-slots-wrap" class="mb-4 md:mb-6 hidden">
+                      <span id="agenda-slots-label" class="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-widest mb-2 md:mb-3 block"></span>
+                      <div id="agenda-slots" class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2"></div>
+                  </div>
+                  <p class="text-[10px] sm:text-xs text-gray-400 mb-3 md:mb-4">Réservation démo. En production : intégration MyCockpit (localsearch.ch) pour confirmer le RDV.</p>
+                  <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="block w-full text-center py-3 md:py-4 bg-black text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-lg">Contact ultras-sites.com</a>
               </div>
           </div>
       </div>
@@ -258,6 +260,12 @@ const carouselImages = [
 </BaseLayout>
 
 <style>
+    /* Calendrier : date du jour mise en évidence */
+    .agenda-today {
+        outline: 2px solid #D4B2A7;
+        outline-offset: 2px;
+        border-radius: 0.5rem;
+    }
     /* Mobile : animation CSS auto (plus rapide), pause au touch pour swipe */
     .carousel-infinite { animation: carousel-scroll 14s linear infinite; }
     .carousel-js-driven.carousel-js-active { animation: none; }
@@ -407,6 +415,11 @@ const carouselImages = [
         return day === 0 || day === 6;
     }
 
+    function isToday(d: Date) {
+        const t = new Date();
+        return t.getFullYear() === d.getFullYear() && t.getMonth() === d.getMonth() && t.getDate() === d.getDate();
+    }
+
     function renderAgendaMonth() {
         if (!monthLabel || !datesEl) return;
         monthLabel.textContent = `${MONTHS[agendaMonth]} ${agendaYear}`;
@@ -414,16 +427,18 @@ const carouselImages = [
         const last = new Date(agendaYear, agendaMonth + 1, 0);
         const startPad = (first.getDay() + 6) % 7;
         let html = '';
-        for (let i = 0; i < startPad; i++) html += '<div class="aspect-square"></div>';
+        for (let i = 0; i < startPad; i++) html += '<div class="aspect-square min-w-0"></div>';
         for (let d = 1; d <= last.getDate(); d++) {
             const date = new Date(agendaYear, agendaMonth, d);
             const past = isPast(date);
             const weekend = isWeekend(date);
             const sel = selectedDate && isSameDay(date, selectedDate);
+            const today = isToday(date);
             const disabled = past || weekend;
             const cls = disabled ? 'text-gray-300 cursor-not-allowed' : 'cursor-pointer hover:bg-[#F4EBE8] rounded-lg';
             const active = sel ? 'bg-black text-white hover:bg-black' : '';
-            html += `<button type="button" class="aspect-square flex items-center justify-center text-sm font-medium ${cls} ${active}" ${disabled ? 'disabled' : ''} data-date="${date.toISOString().slice(0, 10)}">${d}</button>`;
+            const todayCls = today && !sel ? 'agenda-today' : '';
+            html += `<button type="button" class="aspect-square flex items-center justify-center text-xs sm:text-sm font-medium min-w-0 ${cls} ${active} ${todayCls}" ${disabled ? 'disabled' : ''} data-date="${date.toISOString().slice(0, 10)}">${d}</button>`;
         }
         datesEl.innerHTML = html;
         datesEl.querySelectorAll('button:not([disabled])').forEach((btn) => {
