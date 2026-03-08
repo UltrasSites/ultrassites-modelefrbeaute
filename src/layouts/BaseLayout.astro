@@ -2,25 +2,35 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import type { Lang } from "../i18n/utils";
 
-const pageTitle = Astro.props.title || "Beauté & Bien-être - Démo | ultras-sites.com";
-const description = Astro.props.description || "Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com.";
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description, lang } = Astro.props;
+const pageTitle = title || "Beauté & Bien-être - Démo | ultras-sites.com";
+const pageDescription = description || "Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com.";
+const currentLang = lang ?? 'fr';
+const htmlLang = currentLang === 'pt' ? 'pt-PT' : currentLang === 'en' ? 'en-US' : currentLang;
 ---
 
 <!doctype html>
-<html lang="fr" class="scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth" data-lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script is:inline>
       (function(){var t=typeof localStorage!=='undefined'&&localStorage.getItem('theme');if(!t){localStorage.setItem('theme','dark');document.documentElement.dataset.theme='dark';}else if(t==='dark'){document.documentElement.dataset.theme='dark';}})();
     </script>
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={Astro.url.href} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={Astro.url.href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
@@ -37,6 +47,8 @@ const description = Astro.props.description || "Démo site vitrine coiffure, ins
       });
       setTimeout(() => document.documentElement.classList.add("loaded"), 300);
 
+      (function(){ var L = document.documentElement.getAttribute('data-lang'); if(L) try { localStorage.setItem('lang', L); } catch(e) {} })();
+
       window.__toggleTheme = function () {
         const root = document.documentElement;
         const next = root.dataset.theme === "dark" ? "light" : "dark";
@@ -51,10 +63,10 @@ const description = Astro.props.description || "Démo site vitrine coiffure, ins
   </head>
 
   <body class="text-[#2C2A29] antialiased selection:bg-[#D4B2A7] selection:text-white">
-    <Header />
+    <Header lang={currentLang} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={currentLang} />
   </body>
 </html>

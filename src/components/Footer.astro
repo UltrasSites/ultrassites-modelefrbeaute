@@ -1,4 +1,11 @@
 ---
+import type { Lang } from '../i18n/utils';
+import { translations } from '../i18n/translations';
+
+interface Props { lang?: Lang; }
+
+const lang = Astro.props.lang ?? 'fr';
+const t = translations[lang];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,9 +14,9 @@ const currentYear = new Date().getFullYear();
     <div class="text-center md:text-left">
       <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-5 h-5 text-[#D4B2A7]"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-         <span class="font-serif font-bold text-xl text-black tracking-widest">Beauté & <span class="text-[#D4B2A7]">Bien-être.</span></span>
+         <span class="font-serif font-bold text-xl text-black tracking-widest">{t.footer_brand}</span>
       </div>
-      <p class="text-gray-400 text-xs uppercase tracking-widest">© {currentYear} — Démo · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="hover:text-[#D4B2A7]">ultras-sites.com</a></p>
+      <p class="text-gray-400 text-xs uppercase tracking-widest">© {currentYear} — {t.footer_copyright} · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="hover:text-[#D4B2A7]">ultras-sites.com</a></p>
     </div>
 
     <div class="flex flex-col md:flex-row items-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-bold">
