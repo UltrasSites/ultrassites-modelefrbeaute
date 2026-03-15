@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact - Démo beauté & bien-être | ultras-sites.com" description="Page de contact fictive pour la démo de site vitrine dédiée aux instituts, salons de coiffure et barbers.">
+  <div class="min-h-screen bg-[#FCFAF8] pt-32 pb-20 px-6 flex items-center justify-center">
+    
+    <div class="max-w-4xl w-full grid md:grid-cols-2 gap-16">
+      
+      <div class="space-y-8">
+        <h1 class="text-4xl md:text-5xl font-serif text-black leading-tight">Parlons de votre futur site.</h1>
+        <p class="text-gray-500 font-light leading-relaxed">Cette page est une démo. En réel, elle vous permettrait de recevoir les demandes de vos clientes et clients pour votre institut, salon de coiffure, barber ou centre bien-être.</p>
+        
+        <div class="space-y-4 pt-8 border-t border-gray-200">
+          <p class="text-sm text-gray-800 font-bold">Email (démo)</p>
+          <a href="mailto:contact@ultras-sites.com" class="text-sm text-gray-500 hover:text-[#D4B2A7] transition">contact@ultras-sites.com</a>
+          
+          <p class="text-sm text-gray-800 font-bold mt-6">Téléphone (exemple)</p>
+          <span class="text-sm text-gray-500">+41 00 000 00 00</span>
+        </div>
+      </div>
+
+      <form id="formulaire" class="space-y-8 bg-white p-10 shadow-[0_10px_40px_rgb(0,0,0,0.03)] border border-gray-50 rounded-2xl">
+          <div class="relative">
+              <input type="text" placeholder="Votre nom complet" class="w-full bg-transparent border-b border-gray-300 text-black placeholder-gray-400 py-3 focus:border-[#D4B2A7] focus:outline-none transition-colors text-sm" />
+          </div>
+          <div class="relative">
+              <input type="email" placeholder="Adresse email" class="w-full bg-transparent border-b border-gray-300 text-black placeholder-gray-400 py-3 focus:border-[#D4B2A7] focus:outline-none transition-colors text-sm" />
+          </div>
+          <div class="relative">
+              <textarea rows="4" placeholder="Votre message ou question..." class="w-full bg-transparent border-b border-gray-300 text-black placeholder-gray-400 py-3 focus:border-[#D4B2A7] focus:outline-none transition-colors resize-none text-sm"></textarea>
+          </div>
+          
+          <button type="button" class="w-full bg-black hover:bg-[#D4B2A7] text-white text-xs font-bold uppercase tracking-[0.2em] py-5 transition-colors">
+              Envoyer la demande
+          </button>
+      </form>
+
+    </div>
+  </div>
+</BaseLayout>

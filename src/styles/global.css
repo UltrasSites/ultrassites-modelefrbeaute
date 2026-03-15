@@ -46,6 +46,296 @@
         font-family: var(--font-salon);
         color: var(--color-primary);
     }
+
+    html[data-theme='dark'] {
+        --color-bg: #020617;
+        --color-text: #e5e7eb;
+        --color-primary: #f9fafb;
+        --color-accent: #E3B8AA;
+        --color-accent-light: #0f172a;
+        background-color: #020617 !important;
+    }
+
+    html[data-theme='dark'] body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        background-image:
+            radial-gradient(ellipse 160% 100% at 50% -20%, rgba(15, 23, 42, 0.9) 0%, transparent 55%),
+            radial-gradient(ellipse 120% 90% at 90% 50%, rgba(30, 64, 175, 0.25) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 80% at 10% 100%, rgba(15, 23, 42, 0.7) 0%, transparent 55%);
+    }
+
+    html[data-theme='dark'] body::before {
+        background: radial-gradient(ellipse 80% 50% at 50% 30%, rgba(15, 23, 42, 0.6) 0%, transparent 60%);
+    }
+
+    html[data-theme='dark'] .nav-scrolled {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgb(30, 41, 59);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    html[data-theme='dark'] .nav-transparent {
+        background: transparent !important;
+        border-color: transparent;
+        backdrop-filter: none;
+    }
+
+    /* Header desktop : fond plein uniquement au scroll en dark */
+    html[data-theme='dark'] #desktop-header.nav-scrolled {
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgb(30, 41, 59);
+    }
+
+    html[data-theme='dark'] #desktop-header:not(.nav-scrolled) {
+        background: transparent !important;
+        border-bottom-color: transparent;
+    }
+
+    html[data-theme='dark'] #desktop-header.nav-transparent:hover {
+        background: rgba(15, 23, 42, 0.5) !important;
+    }
+
+    html[data-theme='dark'] #desktop-header a,
+    html[data-theme='dark'] #desktop-header .font-serif,
+    html[data-theme='dark'] #desktop-header span {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #desktop-header a:hover {
+        color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] #desktop-header nav a {
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #desktop-header nav a:hover {
+        color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] #desktop-header .text-\[\#D4B2A7\] {
+        color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] #desktop-header svg {
+        color: #E3B8AA;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="prestations"] {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="prestations"]:hover {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="agenda"] {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta a[href*="agenda"]:hover {
+        background: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta button {
+        background: rgba(226, 232, 240, 0.9) !important;
+        border-color: rgb(148, 163, 184) !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #desktop-header #header-cta button:hover {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    /* Sections et cartes en dark */
+    html[data-theme='dark'] section,
+    html[data-theme='dark'] .page-bg {
+        background-color: #0f172a !important;
+        background-image: none;
+    }
+
+    html[data-theme='dark'] .page-bg {
+        background-image: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(30, 41, 59, 0.6) 0%, transparent 55%);
+    }
+
+    html[data-theme='dark'] .bg-\[\#FCFAF8\] {
+        background-color: #1e293b !important;
+    }
+
+    html[data-theme='dark'] .bg-white {
+        background-color: #1e293b !important;
+        border-color: #334155 !important;
+    }
+
+    html[data-theme='dark'] .text-black {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .text-gray-500,
+    html[data-theme='dark'] .text-gray-600,
+    html[data-theme='dark'] .text-gray-700 {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] .text-gray-300,
+    html[data-theme='dark'] .text-gray-400 {
+        color: #64748b !important;
+    }
+
+    /* Calendrier / agenda : tous les chiffres et textes visibles en dark */
+    html[data-theme='dark'] #agenda-widget,
+    html[data-theme='dark'] #agenda-widget .font-serif {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #agenda-month-label,
+    html[data-theme='dark'] #agenda-days,
+    html[data-theme='dark'] #agenda-slots-label,
+    html[data-theme='dark'] #agenda-widget p,
+    html[data-theme='dark'] #agenda-widget span {
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button:not([disabled]) {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button[disabled],
+    html[data-theme='dark'] #agenda-dates button.text-gray-300 {
+        color: #64748b !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button.bg-black {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button.bg-black:hover {
+        background: #cbd5e1 !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] #agenda-prev-month,
+    html[data-theme='dark'] #agenda-next-month {
+        color: #cbd5e1 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget .border-gray-100,
+    html[data-theme='dark'] #agenda-widget .border-gray-200 {
+        border-color: #475569 !important;
+    }
+
+    html[data-theme='dark'] #agenda-widget button:hover:not([disabled]):not(.bg-black) {
+        background: #334155 !important;
+    }
+
+    html[data-theme='dark'] #agenda-slots button {
+        color: #e5e7eb !important;
+        border-color: #475569 !important;
+    }
+
+    html[data-theme='dark'] #agenda-slots button:hover {
+        border-color: #E3B8AA !important;
+        background: #334155 !important;
+    }
+
+    html[data-theme='dark'] #agenda .text-gray-500,
+    html[data-theme='dark'] #agenda .text-gray-700 {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] .agenda-today {
+        outline-color: #E3B8AA !important;
+    }
+
+    html[data-theme='dark'] footer {
+        background-color: #0f172a !important;
+        border-color: #1e293b !important;
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] footer a {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] footer a:hover {
+        color: #E3B8AA !important;
+    }
+
+    /* Hero en dark : voile noir, image au naturel, texte clair */
+    html[data-theme='dark'] .hero-overlay-radial {
+        background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 0%, rgba(2, 6, 23, 0.4) 50%, rgba(0, 0, 0, 0.85) 100%) !important;
+        opacity: 1 !important;
+    }
+
+    html[data-theme='dark'] .hero-overlay-linear {
+        background: linear-gradient(to right, rgba(2, 6, 23, 0.88) 0%, rgba(2, 6, 23, 0.5) 45%, transparent 100%) !important;
+    }
+
+    html[data-theme='dark'] .hero-bg-img {
+        opacity: 1 !important;
+    }
+
+    html[data-theme='dark'] .hero-section h1,
+    html[data-theme='dark'] .hero-section .text-black,
+    html[data-theme='dark'] .hero-section .text-black\/90 {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-black {
+        background: #e5e7eb !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-black:hover {
+        background: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .hero-section .border-gray-300 {
+        border-color: rgba(226, 232, 240, 0.5) !important;
+    }
+
+    html[data-theme='dark'] .hero-section a.bg-transparent {
+        color: #e5e7eb !important;
+    }
+
+    html[data-theme='dark'] .hero-section .text-gray-500 {
+        color: #94a3b8 !important;
+    }
+
+    html[data-theme='dark'] .hero-section .bg-white\/90 {
+        background: rgba(226, 232, 240, 0.9) !important;
+        color: #0f172a !important;
+        border-color: rgba(148, 163, 184, 0.5) !important;
+    }
+
+    html[data-theme='dark'] .hero-section .bg-white\/90:hover {
+        background: #E3B8AA !important;
+        border-color: #E3B8AA !important;
+        color: #0f172a !important;
+    }
+
+    /* Bouton menu mobile (RDV/Menu) en blanc en dark */
+    html[data-theme='dark'] .mobile-fab.mode-rdv,
+    html[data-theme='dark'] .mobile-fab.mode-menu {
+        background: #ffffff !important;
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .mobile-fab .mobile-fab-text {
+        color: #0f172a !important;
+    }
+
+    html[data-theme='dark'] .mobile-fab-bars span {
+        background: #0f172a !important;
+    }
 }
 
 /* Animations d'apparition */
@@ -64,6 +354,19 @@
 }
 .nav-transparent {
     @apply bg-transparent border-transparent;
+}
+
+/* Icônes du bouton de thème (soleil / lune) */
+.theme-toggle-icon-moon {
+    display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-sun {
+    display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-moon {
+    display: inline-block;
 }
 
 /* Fond de section (s’harmonise avec le fond crème global) */

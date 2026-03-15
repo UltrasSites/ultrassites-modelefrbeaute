@@ -1,0 +1,79 @@
+---
+import { supportedLangs, type Lang } from '../i18n/utils';
+
+interface Props {
+  currentLang: Lang;
+  variant?: 'header' | 'drawer';
+}
+
+const { currentLang, variant = 'header' } = Astro.props;
+const isDrawer = variant === 'drawer';
+---
+
+<div class:list={['lang-switcher', isDrawer ? 'lang-switcher--drawer' : 'lang-switcher--header']} role="navigation" aria-label="Choisir la langue">
+  {supportedLangs.map((l) => {
+    const isActive = l === currentLang;
+    const href = `/${l}/`;
+    return (
+      <a
+        href={href}
+        class:list={['lang-switcher__link', isActive && 'lang-switcher__link--active']}
+        aria-current={isActive ? 'true' : undefined}
+        data-lang={l}
+      >
+        {l.toUpperCase()}
+      </a>
+    );
+  })}
+</div>
+
+<style>
+  .lang-switcher { display: flex; align-items: center; gap: 0.25rem; }
+  .lang-switcher--header .lang-switcher__link {
+    padding: 0.35rem 0.5rem;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #374151;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+  }
+  .lang-switcher--header .lang-switcher__link:hover {
+    color: #D4B2A7;
+    border-color: rgba(212, 178, 167, 0.6);
+    background: rgba(212, 178, 167, 0.08);
+  }
+  .lang-switcher--header .lang-switcher__link--active {
+    color: #D4B2A7;
+    border-color: rgba(212, 178, 167, 0.6);
+    background: rgba(212, 178, 167, 0.12);
+  }
+  .lang-switcher--drawer {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 0.5rem;
+  }
+  .lang-switcher--drawer .lang-switcher__link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #374151;
+    border-radius: 10px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-switcher--drawer .lang-switcher__link:hover {
+    background: rgba(212, 178, 167, 0.15);
+    color: #D4B2A7;
+  }
+  .lang-switcher--drawer .lang-switcher__link--active {
+    background: rgba(212, 178, 167, 0.2);
+    color: #D4B2A7;
+  }
+</style>
