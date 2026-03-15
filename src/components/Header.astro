@@ -108,9 +108,9 @@ const links = [
     html[data-theme='dark'] .menu-panel-sheet { background: rgba(26,26,26,0.92); border-top-color: rgba(255,255,255,0.1); box-shadow: inset 0 1px 1px rgba(255,255,255,0.06), 0 -8px 32px rgba(0,0,0,0.25); }
 </style>
 
-<div id="mobile-drawer" class="fixed inset-0 z-50 translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden flex items-end">
-    <div id="backdrop" class="menu-overlay absolute inset-0 opacity-0 transition-opacity duration-400"></div>
-    <div class="drawer-panel menu-panel-sheet relative w-full rounded-t-[32px] shadow-2xl flex flex-col p-6 pb-24 max-h-[85vh]">
+<div id="mobile-drawer" class="fixed inset-0 z-[70] translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden flex items-end">
+    <div id="backdrop" class="menu-overlay absolute inset-0 opacity-0 transition-opacity duration-400 z-[65]"></div>
+    <div class="drawer-panel menu-panel-sheet relative w-full rounded-t-[32px] shadow-2xl flex flex-col p-6 pb-32 max-h-[88vh] overflow-y-auto z-[71]">
         <div class="flex justify-between items-center mb-8">
             <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">{t.drawer_nav}</span>
             <button id="close-btn" type="button" class="p-2.5 text-gray-400 hover:text-black rounded-full bg-white/90 shadow-md hover:shadow-lg transition-all" aria-label={t.drawer_close}>
@@ -203,12 +203,7 @@ const links = [
     }
 
     btn?.addEventListener('click', () => {
-        const isMenuMode = window.scrollY > fabScrollThreshold;
-        if (isMenuMode) toggleMenu(true);
-        else {
-            const base = (btn as HTMLElement).dataset.base || '';
-            window.location.href = base ? `${base}/#agenda` : '/#agenda';
-        }
+        toggleMenu(true);
     });
     close?.addEventListener('click', () => toggleMenu(false));
     backdrop?.addEventListener('click', () => toggleMenu(false));
