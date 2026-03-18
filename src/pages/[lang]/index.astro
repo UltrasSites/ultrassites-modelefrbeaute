@@ -32,7 +32,7 @@ const carouselImages = [
 ];
 ---
 
-<BaseLayout title="Beauté & Bien-être - Démo | ultras-sites.com" description="Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com." lang={currentLang}>
+<BaseLayout title="Beauté & Bien-être Cannes & Nice - Démo | ultras-sites.com" description="Démo site vitrine coiffure, institut, barber, ongles, bien-être à Cannes, Nice et la Côte d'Azur. Création site web salon beauté Cannes, institut bien-être Nice. Modèle proposé par ultras-sites.com." lang={currentLang}>
 
   <section id="home" class="hero-section relative min-h-[95vh] md:min-h-screen w-full flex items-center justify-center px-6 pt-24 overflow-hidden">
       <div class="absolute inset-0 z-0">
@@ -42,19 +42,19 @@ const carouselImages = [
       </div>
 
       <div class="relative z-10 max-w-7xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6 animate-fade-in-up">
+          <div class="space-y-6 animate-fade-in-up text-center">
               <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-black leading-tight">{t.hero_title}</h1>
               <p class="text-[15px] sm:text-base md:text-base text-black/90 font-bold leading-snug max-w-xl">{t.hero_lead}</p>
               <p class="text-sm text-gray-500 italic">{t.hero_demo_note} · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="underline">ultras-sites.com</a></p>
-              <div class="hidden md:flex flex-wrap items-center gap-3 py-2">
+              <div class="hidden md:flex flex-wrap items-center justify-center gap-3 py-2">
                   <a href={`${base}/#contact`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_contact}</a>
                   <a href={`${base}/#agenda`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_rdv} (démo)</a>
                   <a href="https://ultras-sites.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 rounded-full border border-[#D4B2A7] text-[#D4B2A7] hover:bg-[#D4B2A7] hover:text-white transition-all" aria-label="ultras-sites">ultras</a>
               </div>
               <div class="flex flex-col gap-4 pt-2 md:hidden">
                   <div class="flex flex-col sm:flex-row gap-4">
-                      <a href={`${base}/#agenda`} class="flex items-center justify-center px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#D4B2A7] transition-all shadow-xl">{t.hero_cta_rdv}</a>
-                      <a href={`${base}/#prestations`} class="flex items-center justify-center px-8 py-4 bg-transparent border border-gray-300 text-black font-bold uppercase tracking-[0.2em] text-xs hover:border-black transition-colors">{t.hero_cta_offres}</a>
+                      <a href={`${base}/#agenda`} class="flex items-center justify-center px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.2em] text-xs rounded-lg shadow-xl hover:bg-[#D4B2A7] hover:shadow-[0_12px_32px_rgba(212,178,167,0.4)] transition-all">{t.hero_cta_rdv}</a>
+                      <a href={`${base}/#prestations`} class="flex items-center justify-center px-8 py-4 bg-transparent border-2 border-gray-300 text-black font-bold uppercase tracking-[0.2em] text-xs rounded-lg hover:border-black transition-colors">{t.hero_cta_offres}</a>
                   </div>
                   <div class="flex gap-3">
                       <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-11 h-11 rounded-full bg-white/95 shadow-md border border-gray-200 text-[#C19A8E] hover:bg-[#D4B2A7] hover:text-white hover:border-[#D4B2A7] transition-all shrink-0" aria-label="Instagram">
@@ -205,7 +205,7 @@ const carouselImages = [
           <p class="text-xs text-gray-400 mb-10">{t.section_avis_lead}</p>
           <div class="grid md:grid-cols-3 gap-10">
               {avis.map((avi) => (
-                  <div class="bg-white p-10 shadow-[0_10px_40px_rgb(0,0,0,0.03)] border border-gray-50 relative group hover:-translate-y-2 transition-transform duration-500">
+                  <div class="bg-white p-10 shadow-[0_10px_40px_rgb(0,0,0,0.06)] border border-gray-100 rounded-2xl relative group hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(212,178,167,0.12)] transition-all duration-500">
                       <div class="text-4xl font-serif text-[#D4B2A7] mb-4">"</div>
                       <p class="text-gray-600 font-light leading-relaxed mb-8 text-sm">{avi.text}</p>
                       <div class="flex items-center justify-center gap-1 mb-3 text-[#D4B2A7]">

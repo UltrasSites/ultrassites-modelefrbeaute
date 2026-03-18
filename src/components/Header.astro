@@ -92,6 +92,7 @@ const links = [
 
 <style>
     .mobile-dock { position: fixed; bottom: calc(1.5rem + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 60; display: flex; justify-content: center; }
+    @media (min-width: 768px) { .mobile-dock { display: none !important; } }
     .mobile-dock-inner { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 99px; background: rgba(252,250,248,0.92); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(0,0,0,0.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 32px rgba(0,0,0,0.12); }
     html[data-theme='dark'] .mobile-dock-inner { background: rgba(26, 26, 26, 0.92); border-color: rgba(255,255,255,0.1); }
     .dock-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s ease; box-shadow: 0 4px 14px rgba(0,0,0,0.1); text-decoration: none; }
@@ -105,8 +106,8 @@ const links = [
     .dock-sep { width: 1px; height: 28px; background: rgba(0,0,0,0.1); flex-shrink: 0; }
     html[data-theme='dark'] .dock-sep { background: rgba(255,255,255,0.15); }
     .menu-overlay { background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: opacity 0.4s; }
-    .menu-panel-sheet { background: rgba(252,250,248,0.92); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-top: 1px solid rgba(0,0,0,0.06); box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 -8px 32px rgba(0,0,0,0.12); }
-    html[data-theme='dark'] .menu-panel-sheet { background: rgba(26,26,26,0.92); border-top-color: rgba(255,255,255,0.1); box-shadow: inset 0 1px 1px rgba(255,255,255,0.06), 0 -8px 32px rgba(0,0,0,0.25); }
+    .menu-panel-sheet { background: rgba(252,248,244,0.98); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-top: 1px solid rgba(232,121,160,0.18); box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), 0 -8px 32px rgba(0,0,0,0.10); }
+    html[data-theme='dark'] .menu-panel-sheet { background: rgba(28,18,24,0.98); border-top-color: rgba(232,121,160,0.2); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04), 0 -8px 32px rgba(0,0,0,0.35); }
 </style>
 
 <div id="mobile-drawer" class="fixed inset-0 z-[70] translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden flex items-end">
@@ -118,7 +119,7 @@ const links = [
         </p>
         <div class="flex justify-between items-center mb-8">
             <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7]">{t.drawer_nav}</span>
-            <button id="close-btn" type="button" class="p-2.5 text-gray-400 hover:text-black rounded-full bg-white/90 shadow-md hover:shadow-lg transition-all" aria-label={t.drawer_close}>
+            <button id="close-btn" type="button" class="p-2.5 text-[#e879a0] hover:text-white rounded-full bg-[#fce8f0] hover:bg-[#e879a0] shadow-md hover:shadow-lg transition-all" aria-label={t.drawer_close}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
         </div>

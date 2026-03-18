@@ -11,8 +11,8 @@ interface Props {
 }
 
 const { title, description, lang } = Astro.props;
-const pageTitle = title || "Beauté & Bien-être - Démo | ultras-sites.com";
-const pageDescription = description || "Démo site vitrine coiffure, institut, barber, ongles, bien-être. Modèle proposé par ultras-sites.com.";
+const pageTitle = title || "Beauté & Bien-être Cannes & Nice - Démo | ultras-sites.com";
+const pageDescription = description || "Démo site vitrine coiffure, institut, barber, ongles, bien-être à Cannes, Nice et la Côte d'Azur. Création site web salon beauté Cannes, institut bien-être Nice. Modèle proposé par ultras-sites.com.";
 const currentLang = lang ?? 'fr';
 const htmlLang = currentLang === 'pt' ? 'pt-PT' : currentLang === 'en' ? 'en-US' : currentLang;
 ---
@@ -27,6 +27,9 @@ const htmlLang = currentLang === 'pt' ? 'pt-PT' : currentLang === 'en' ? 'en-US'
     </script>
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="site web salon coiffure, site web institut beauté Cannes, création site bien-être Nice, web beauté Côte d'Azur" />
+    <meta name="geo.region" content="FR-PAC" />
+    <meta name="geo.placename" content="Cannes" />
     <link rel="canonical" href={Astro.url.href} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
@@ -37,15 +40,17 @@ const htmlLang = currentLang === 'pt' ? 'pt-PT' : currentLang === 'en' ? 'en-US'
     <title>{pageTitle}</title>
 
     <style is:inline>
-      html { background-color: #F5F0EB; visibility: hidden; opacity: 0; }
-      html.loaded { visibility: visible; opacity: 1; transition: opacity 0.5s ease-in; }
+      /* No visibility:hidden — avoids LCP penalty on PageSpeed */
+      html { background-color: #F5F0EB; }
+      html.loaded body { opacity: 1; }
+      body { opacity: 1; }
     </style>
 
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.classList.add("loaded");
       });
-      setTimeout(() => document.documentElement.classList.add("loaded"), 300);
+      setTimeout(() => document.documentElement.classList.add("loaded"), 100);
 
       (function(){ var L = document.documentElement.getAttribute('data-lang'); if(L) try { localStorage.setItem('lang', L); } catch(e) {} })();
 
