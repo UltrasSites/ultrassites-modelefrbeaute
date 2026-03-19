@@ -36,7 +36,7 @@ const carouselImages = [
 
   <section id="home" class="hero-section relative min-h-[95vh] md:min-h-screen w-full flex items-center justify-center px-6 pt-24 overflow-hidden">
       <div class="absolute inset-0 z-0">
-          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins - démo institut & bien-être" class="hero-bg-img w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+          <img id="hero-img" src={heroBgFallback} data-original={heroBg} alt="Salle de soins - démo institut & bien-être" class="hero-bg-img w-full h-full object-cover object-[50%_50%] md:object-[50%_45%] opacity-90" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" />
           <div class="hero-overlay hero-overlay-radial absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#FCFAF8_100%)] opacity-60 md:opacity-65"></div>
           <div class="hero-overlay hero-overlay-linear absolute inset-0 bg-gradient-to-r from-[#FCFAF8]/92 via-[#FCFAF8]/65 to-transparent w-full md:w-2/3"></div>
       </div>
@@ -45,7 +45,7 @@ const carouselImages = [
           <div class="space-y-6 animate-fade-in-up text-center">
               <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-black leading-tight">{t.hero_title}</h1>
               <p class="text-[15px] sm:text-base md:text-base text-black/90 font-bold leading-snug max-w-xl">{t.hero_lead}</p>
-              <p class="text-sm text-gray-500 italic">{t.hero_demo_note} · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="underline">ultras-sites.com</a></p>
+              <p class="text-sm text-gray-600 italic">{t.hero_demo_note} · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="underline">ultras-sites.com</a></p>
               <div class="hidden md:flex flex-wrap items-center justify-center gap-3 py-2">
                   <a href={`${base}/#contact`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_contact}</a>
                   <a href={`${base}/#agenda`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_rdv} (démo)</a>
@@ -192,7 +192,7 @@ const carouselImages = [
                       <span id="agenda-slots-label" class="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-widest mb-2 md:mb-3 block"></span>
                       <div id="agenda-slots" class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2"></div>
                   </div>
-                  <p class="text-[10px] sm:text-xs text-gray-400 mb-3 md:mb-4">{t.section_agenda_demo_note}</p>
+                  <p class="text-[10px] sm:text-xs text-gray-600 mb-3 md:mb-4">{t.section_agenda_demo_note}</p>
                   <a href="https://ultras-sites.com/#contact" target="_blank" rel="noopener" class="block w-full text-center py-3 md:py-4 bg-black text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-lg">{t.section_agenda_contact_cta}</a>
               </div>
           </div>
@@ -202,7 +202,7 @@ const carouselImages = [
   <section id="avis" class="py-32 px-6 bg-[#FCFAF8]">
       <div class="max-w-7xl mx-auto text-center">
           <h2 class="text-3xl font-serif mb-3 text-black">{t.section_avis_title}</h2>
-          <p class="text-xs text-gray-400 mb-10">{t.section_avis_lead}</p>
+          <p class="text-xs text-gray-600 mb-10">{t.section_avis_lead}</p>
           <div class="grid md:grid-cols-3 gap-10">
               {avis.map((avi) => (
                   <div class="bg-white p-10 shadow-[0_10px_40px_rgb(0,0,0,0.06)] border border-gray-100 rounded-2xl relative group hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(212,178,167,0.12)] transition-all duration-500">
@@ -236,24 +236,41 @@ const carouselImages = [
               </div>
               <div class="bg-white p-10 rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.04)] border border-gray-50">
                   <h3 class="text-xl font-serif text-black mb-6">{t.section_contact_form_title}</h3>
-                  <p class="text-xs text-gray-400 mb-6">{t.section_contact_form_note}</p>
+                  <p class="text-xs text-gray-600 mb-6">{t.section_contact_form_note}</p>
                   <form id="formulaire" class="space-y-5">
-                      <input type="text" placeholder={t.form_name} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none text-sm" />
-                      <input type="email" placeholder={t.form_email} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none text-sm" />
-                      <textarea rows="3" placeholder={t.form_message} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-400 focus:border-[#D4B2A7] focus:outline-none resize-none text-sm"></textarea>
+                      <input type="text" placeholder={t.form_name} aria-label={t.form_name} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-500 focus:border-[#D4B2A7] focus:outline-none text-sm" />
+                      <input type="email" placeholder={t.form_email} aria-label={t.form_email} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-500 focus:border-[#D4B2A7] focus:outline-none text-sm" />
+                      <textarea rows="3" placeholder={t.form_message} aria-label={t.form_message} class="w-full bg-transparent border-b border-gray-300 py-3 text-black placeholder-gray-500 focus:border-[#D4B2A7] focus:outline-none resize-none text-sm"></textarea>
                       <button type="button" class="w-full py-4 bg-black text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4B2A7] transition-colors rounded-sm">{t.form_send}</button>
                   </form>
               </div>
           </div>
       </div>
-      <div class="relative h-[50vh] min-h-[400px] w-full bg-gray-200">
-          <iframe 
-              src="https://maps.google.com/maps?q=Tour%20Eiffel%20Paris&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      <div class="map-facade-container relative h-[50vh] min-h-[400px] w-full bg-gray-200" style="cursor:pointer">
+          <div class="map-facade absolute inset-0 z-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-colors">
+              <div class="text-center">
+                  <svg class="w-10 h-10 mx-auto mb-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  <span class="text-sm text-gray-600 font-medium">Cliquez pour voir la carte</span>
+              </div>
+          </div>
+          <iframe
+              data-src="https://maps.google.com/maps?q=Tour%20Eiffel%20Paris&t=&z=15&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               class="w-full h-full border-0"
+              title="Google Maps - Localisation"
           ></iframe>
       </div>
+      <script is:inline>
+      document.querySelectorAll('.map-facade').forEach(function(facade) {
+        facade.addEventListener('click', function() {
+          var container = facade.parentElement;
+          var iframe = container.querySelector('iframe[data-src]');
+          if (iframe && !iframe.src) { iframe.src = iframe.dataset.src; }
+          facade.style.display = 'none';
+        });
+      });
+      </script>
   </section>
 
 </BaseLayout>
