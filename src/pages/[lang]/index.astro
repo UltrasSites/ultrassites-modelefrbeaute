@@ -46,11 +46,9 @@ const carouselImages = [
               <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-black leading-tight">{t.hero_title}</h1>
               <p class="text-[15px] sm:text-base md:text-base text-black/90 font-bold leading-snug max-w-xl">{t.hero_lead}</p>
               <p class="text-sm text-gray-600 italic">{t.hero_demo_note} · <a href="https://ultras-sites.com" target="_blank" rel="noopener" class="underline">ultras-sites.com</a></p>
-              <div class="hidden md:flex flex-wrap items-center justify-center gap-3 py-2">
-                  <a href={`${base}/#contact`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_contact}</a>
-                  <a href={`${base}/#agenda`} class="flex items-center gap-2 px-4 py-2.5 bg-white/90 backdrop-blur-sm border border-[#D4B2A7]/30 rounded-lg shadow-sm hover:border-[#D4B2A7] transition-all text-sm font-medium text-black">{t.hero_cta_rdv} (démo)</a>
-                  <a href="https://ultras-sites.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 rounded-full border border-[#D4B2A7] text-[#D4B2A7] hover:bg-[#D4B2A7] hover:text-white transition-all" aria-label="ultras-sites">ultras</a>
-              </div>
+                <div class="hidden md:block py-2">
+                    <!-- Les boutons CTA du titre ont été supprimés sur demande (doublon avec ceux de la photo) -->
+                </div>
               <div class="flex flex-col gap-4 pt-2 md:hidden">
                   <div class="flex flex-col sm:flex-row gap-4">
                       <a href={`${base}/#agenda`} class="flex items-center justify-center px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.2em] text-xs rounded-lg shadow-xl hover:bg-[#D4B2A7] hover:shadow-[0_12px_32px_rgba(212,178,167,0.4)] transition-all">{t.hero_cta_rdv}</a>
@@ -68,8 +66,8 @@ const carouselImages = [
           </div>
           <div class="hidden md:flex flex-col items-center text-center animate-fade-in-up order-first md:order-last">
               <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#D4B2A7] mb-4">{t.hero_contact_label}</p>
-              <a href={`${base}/#agenda`} class="block relative w-48 h-56 overflow-hidden rounded-xl shadow-2xl border border-[#D4B2A7]/30 group">
-                  <img id="contact-img" src={contactPhotoFallback} data-original={contactPhoto} alt="Portrait - démo institut & bien-être" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="192" height="224" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+              <a href={`${base}/#agenda`} class="block relative w-64 h-80 overflow-hidden rounded-xl shadow-2xl border border-[#D4B2A7]/30 group">
+                  <img id="contact-img" src={contactPhotoFallback} data-original={contactPhoto} alt="Portrait - démo institut & bien-être" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="256" height="320" loading="eager" decoding="async" referrerpolicy="no-referrer" />
               </a>
               <p class="text-sm font-serif text-black mt-3">{t.hero_expert_label}</p>
               <div class="flex flex-col sm:flex-row gap-3 mt-6 w-full max-w-xs">
